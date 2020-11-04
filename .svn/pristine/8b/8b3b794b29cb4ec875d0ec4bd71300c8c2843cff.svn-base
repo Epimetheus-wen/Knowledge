@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商务详情",
+  "usingComponents": {
+    "uni-calendar": "/components/uni-calendar/uni-calendar",
+    "headertop": "/components/headertop"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "nav-tab": "/components/navTab",
+    "headertop": "/components/headertop",
+    "avatar": "/components/yq-avatar/yq-avatar"
+  }
+}

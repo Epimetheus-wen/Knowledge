@@ -1,0 +1,1 @@
+<view class="classify_Catalog data-v-26a784af"><block wx:for="{{classifyList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['tapSelect',[index]]]]]}}" class="{{['classify_item data-v-26a784af',(index==idx)?'on':'']}}" bindtap="__e"><view class="txt data-v-26a784af">{{item.name}}</view></view></block></view>

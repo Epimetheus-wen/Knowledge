@@ -1,0 +1,198 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.previewWeb .previewWeb_main {
+  min-height: calc(100vh - (25px + 80rpx));
+  position: relative;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top {
+  padding-top: 9rpx;
+  position: relative;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_title {
+  margin-left: 30rpx;
+  line-height: 51rpx;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 30rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin: 0 30rpx;
+  padding: 7rpx 0 8rpx 0;
+  border-bottom: 2rpx solid rgba(0, 0, 0, 0.1);
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item .top_item_bq {
+  width: 106rpx;
+  height: 38rpx;
+  background: #c1cadc;
+  border-radius: 19rpx;
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 38rpx;
+  text-align: center;
+  margin-right: 13rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item .top_item_time {
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, 0.3);
+  line-height: 51rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item_but {
+  position: absolute;
+  right: 0;
+  bottom: 24rpx;
+  height: 40rpx;
+  background-image: url(data:image/png;base64,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);
+  background-size: 100% 100%;
+  padding: 0 46rpx 0 24rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item_but .img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item_but .txt {
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.previewWeb .previewWeb_main .previewWeb_main_top .top_item_but .txt text {
+  max-width: 130rpx;
+  color: #FFD200;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.previewWeb .previewWeb_main .previewWeb_main_center {
+  margin: 44rpx 30rpx 0rpx 30rpx;
+  padding-bottom: 313rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_center .center_main {
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 40rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_center .center_main .imgs {
+  margin: 20rpx auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.previewWeb .previewWeb_main .previewWeb_main_bottom {
+  position: absolute;
+  bottom: 168rpx;
+  left: 36rpx;
+}
+.previewWeb .previewWeb_main .previewWeb_main_bottom .item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 38rpx;
+}
+.previewWeb .footer_but {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+  height: 100rpx;
+  border-top: 1rpx solid #DDDDDD;
+  background: #fff;
+}
+.previewWeb .footer_but .share, .previewWeb .footer_but .collect {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-right: 49rpx;
+}
+.previewWeb .footer_but .share .img, .previewWeb .footer_but .collect .img {
+  width: 34rpx;
+  height: 32rpx;
+  display: block;
+  margin-right: 15rpx;
+}
+.previewWeb .footer_but .share .txt, .previewWeb .footer_but .collect .txt {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.45);
+}
+.previewWeb .footer_but .share {
+  padding: 0;
+  background: #fff;
+}
+.haibao {
+  position: absolute;
+  top: 100000rpx;
+  left: 0rpx;
+  right: 0;
+  bottom: 100rpx;
+  margin: auto;
+  z-index: -1;
+  opacity: 0;
+}
+.haibao #code-canvas {
+  margin: 0 auto;
+  opacity: 0;
+}
+.haibao1 {
+  position: absolute;
+  top: 800rpx;
+  left: 0rpx;
+  right: 0;
+  bottom: 100rpx;
+  margin: auto;
+  z-index: 1;
+  opacity: 0;
+  background: #fff;
+}
+

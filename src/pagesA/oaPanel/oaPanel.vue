@@ -1,0 +1,1971 @@
+<template>
+    <view class="oaPanel" style="height:100vh;overflow:hidden;">
+        <Headertop v-if="!isRotating" :titleTop="titleTop"></Headertop>
+        <HeaderLandscape v-else :titleTop="titleTop"></HeaderLandscape>
+        <view class="oaPanel_main">
+            <!-- 标题 -->
+            <view class="oaPanel_title">
+                <view class="title" :style="!isRotating?'font-weight:600;':'margin-bottom:0;font-weight:600;'">经营详情</view>
+                <view v-if="!isRotating" class="txt">表格维度较多，横屏阅读体验更流畅</view>
+            </view>
+            <view class="huitiao"></view>
+            <view class="oaPanel_Table">
+                <view v-if="!isRotating">
+                    <view class="oaPanel_Table_time">
+                        <view @tap="showPop3()" class="Table_time">
+                            <view class="time">{{customDate.value.start}} 到 {{customDate.value.end}}</view>
+                            <image class="img" src="../static/images/riqi.png"></image>
+                        </view>
+                        <view class="tishi">(每晚24点更新数据)</view>
+                    </view>
+                    <view @tap="offPop3" catchtouchmove='ture' :style="customDate.dom?'display:block;top: calc('+((staHeight*2)+80)+'rpx);':'display:none;top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                    </view> 
+                    <view :style="customDate.dom?'display:block':'display:none'" :class="customDate.shade?'popup_content popup_content3 popup_content_show3':'popup_content popup_content3 popup_content_no3'">
+                        <view class="top">
+                            <view class="title">日期选择</view>
+                            <view @tap="offPop3" class="off_icon">
+                                <image class="img" src="../../static/dataModule/icon_clone.png"></image>
+                            </view>
+                        </view>
+                        <view class="main">
+                            <uni-calendar
+                            :range="true"
+                            :insert="true"
+                            :lunar="false"
+                            :showMonth="false"
+                            :start-date="customDate.startDate"
+                            :end-date="customDate.endDate"
+                            :date="customDate.dufData"
+                            @change="change"
+                            />
+                            <view class="cal_data">
+                                <view class="time_txt">
+                                    <view class="m1">
+                                        <view class="title">开始：</view>
+                                        <view class="t1">{{customDate.data.start}}</view>
+                                    </view>
+                                    <view class="m1">
+                                        <view class="title">结束：</view>
+                                        <view class="t1">{{customDate.data.end}}</view>
+                                    </view>
+                                </view>
+                                <button class="time" @tap="confirmTime">确定</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view v-else>
+                    <view class="oaPanel_Table_time">
+                        <view @tap="showPop3()" class="Table_time">
+                            <view class="time">{{customDate.value.start}} 到 {{customDate.value.end}}</view>
+                            <image class="img" src="../static/images/riqi.png"></image>
+                        </view>
+                        <view class="tishi">(每晚24点更新数据)</view>
+                    </view>
+                    <view @tap="offPop3" catchtouchmove='ture' :style="customDate.dom?'display:block':'display:none'"  class="shade_popup_h show_popup">
+                    </view>
+                    <view :style="customDate.dom?'display:block':'display:none'" :class="customDate.shade?'h_pop popup_content_show20':'h_pop popup_content_no21'">
+                        <view class="top">
+                            <view class="title">日期选择</view>
+                            <view @tap="offPop3" class="off_icon">
+                                <image class="img" src="../../static/dataModule/icon_clone.png"></image>
+                            </view>
+                        </view>
+                        <view class="main">
+                            <uni-calendar
+                            class="main_calendar"
+                            :range="true"
+                            :insert="true"
+                            :lunar="false"
+                            :showMonth="false"
+                            :start-date="customDate.startDate"
+                            :end-date="customDate.endDate"
+                            :date="customDate.dufData"
+                            @change="change"
+                            />
+                            <view class="cal_data_h">
+                                <view class="time_txt">
+                                    <view class="m1">
+                                        <view class="title">开始：</view>
+                                        <view class="t1">{{customDate.data.start}}</view>
+                                    </view>
+                                    <view class="m1">
+                                        <view class="title">结束：</view>
+                                        <view class="t1">{{customDate.data.end}}</view>
+                                    </view>
+                                </view>
+                                <button class="time" @tap="confirmTime">确定</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="oaPanel_Table_list">
+                    <scroll-view :scroll-with-animation="true" :scroll-anchoring="true"  @scroll="getScroll" @scrolltolower="getScrollBottom" :scroll-top="scrollTop" :scroll-left="scrollLeft" :scroll-y="true" :scroll-x="true" :style="'max-height:'+(slideYY-10)+'rpx'" :class="isRotating?'right right1':'right'">
+                        <view :class="Permission==4?'right_h right_h4':'right_h'">
+                            <view class="title" style="position: sticky;top:0;z-index:1;">
+                                <view  class="title_item_left" style="position: sticky;left:0;top:0;z-index:1;">
+                                    <view @tap="showPop(customerName.n)" class="popItem">
+                                        <text class="txt">{{customerName.value}}</text>
+                                        <image v-if="!customerName.dom" class="img" src="../static/images/show.png"></image>
+                                        <image v-else class="img" src="../static/images/show_no.png"></image>
+                                    </view>
+                                </view>
+                                <view @tap="showPop2(CustType.n)" class="title_item title_item1">{{CustType.value}}
+                                    <image v-if="!CustType.dom" class="img" src="../static/images/show.png"></image>
+                                    <image v-else class="img" src="../static/images/show_no.png"></image>
+                                </view>
+                                <view @tap="showPop4(sale.n)" class="title_item title_item2">{{sale.value}}
+                                    <image v-if="!sale.dom" class="img" src="../static/images/show.png"></image>
+                                    <image v-else class="img" src="../static/images/show_no.png"></image>
+                                </view>
+                                <view @tap="showPop5(eventType.n)" class="title_item title_item2">{{eventType.value}}
+                                    <image v-if="!eventType.dom" class="img" src="../static/images/show.png"></image>
+                                    <image v-else class="img" src="../static/images/show_no.png"></image>
+                                </view>
+                                <view :class="Permission==4?'title_item title_item2 title_item5':'title_item title_item2'">营收（万）</view>
+                                <view :class="Permission==4?'title_item title_item2 title_item5':'title_item title_item2'">成本（万）</view>
+                                <view :class="Permission==4?'title_item title_item2 title_item4':'title_item title_item2'">{{Permission==4?'全口径毛利（万）':'毛利（万）'}}</view>
+                                <view :class="Permission==4?'title_item title_item1 title_item3':'title_item title_item1'">{{Permission==4?'全口径毛利率':'毛利率'}}</view>
+                            </view>
+                            <view class="list" v-for="(item,index) in list" :key="index">
+                                <view class="title_item_left1" style="position: sticky;left:0"><text class="txt">{{item.cust_name}}</text></view>
+                                <view class="title_item title_item1">{{item.cust_type}}
+                                </view>
+                                <view class="title_item title_item2">{{item.sale_name}}
+                                </view>
+                                <view class="title_item title_item2">{{item.business_type}}
+                                </view>
+                                <view :class="Permission==4?'title_item title_item2 title_item5':'title_item title_item2'">{{item.revenue}}</view>
+                                <view :class="Permission==4?'title_item title_item2 title_item5':'title_item title_item2'">{{item.cost}}</view>
+                                <view :class="Permission==4?'title_item title_item2 title_item4':'title_item title_item2'">{{item.profit}}</view>
+                                <view :class="Permission==4?'title_item title_item1 title_item3':'title_item title_item1'">{{item.rate}}</view>
+                            </view>
+                            <!-- <view class="scrollHH2" style="position: sticky;">
+                                <view class="scrollHH_long" @touchstart="HHStartEvent" @touchmove="HHMoveEvent" @touchend="HHEndEvent" :style="'width:'+170+'rpx;left: '+HHLeft+'px;'"></view>
+                            </view> -->
+                            <view :class="!isRotating?'list_footer':'list_footer list_footer1'" style="position: sticky;left:0;">
+                                <view v-if="load" class="load_footer">
+                                    <view class="txt">
+                                        <uni-icons class="load_icon" type="spinner-cycle" size="30"></uni-icons>
+                                        <text>正在加载中......</text>
+                                    </view>
+                                </view>
+                                <image v-if="!load" class="img" src='../static/images/footer.png'></image>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+                
+
+                <!-- <view :style="scrollActionY?'display:block;':'display:none'" class="scrollYY">
+                    <view class="scrollYY_long" @touchstart="YYStartEvent" @touchmove="YYMoveEvent" @touchend="YYEndEvent" :style="'height:'+slideYYHeight+'rpx;top: '+YYTop+'px;'"></view>
+                </view> -->
+                <view v-if="!isRotating">
+                    <view v-if="customerName.dom" @tap="offPop" catchtouchmove='ture' :style="'top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                    </view>
+                    <view v-if="customerName.dom" :class="customerName.shade?'popup_content popup_content_show':'popup_content popup_content_no'">
+                        <view class="top">
+                            <view class="search_top_center">
+                                <image class="img img1" src="../../static/home/search.png"></image>
+                                <input v-model="searchValue" class="input" @input="goSearch(searchValue)" @confirm="goSearch(searchValue)" confirm-type="search" placeholder-class="input_s" placeholder="输入客户名称模糊搜索" type="text">
+                            </view>
+                        </view>
+                        <view class="main">
+                            <view @tap="pitch(item.cust_name)" v-for="(item,index) in customerName.list" :key="index" :class="customerName.n==item.cust_name?'list1 list_action':'list1'">{{item.cust_name}}</view>
+                        </view>
+                    </view>
+                    <view v-if="CustType.dom" @tap="offPop2" catchtouchmove='ture' :style="'top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                    </view>
+                    <view v-if="CustType.dom" :class="CustType.shade?'popup_content popup_content_show':'popup_content popup_content_no'">
+                        <view class="main" style="border-radius: 20rpx 20rpx 0 0;">
+                            <view @tap="pitch2(item.cust_type)" v-for="(item,index) in CustType.list" :key="index" :class="CustType.n==item.cust_type?'list1 list_action':'list1'">{{item.type_name}}</view>
+                        </view>
+                    </view>
+                    <view v-if="sale.dom" @tap="offPop4" catchtouchmove='ture' :style="'top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                    </view>
+                    <view v-if="sale.dom" :class="sale.shade?'popup_content popup_content_show':'popup_content popup_content_no'">
+                        <view class="top">
+                            <view class="search_top_center">
+                                <image class="img img1" src="../../static/home/search.png"></image>
+                                <input v-model="searchValue2" class="input" @input="goSearch2(searchValue2)" @confirm="goSearch2(searchValue2)" confirm-type="search" placeholder-class="input_s" placeholder="输入商务名称模糊搜索" type="text">
+                            </view>
+                        </view>
+                        <view class="main">
+                            <view @tap="pitch4(item.sale_name)" v-for="(item,index) in sale.list" :key="index" :class="sale.n==item.sale_name?'list1 list_action':'list1'">{{item.sale_name}}</view>
+                        </view>
+                    </view>
+                    <view v-if="eventType.dom" @tap="offPop5" catchtouchmove='ture' :style="'top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                    </view>
+                    <view v-if="eventType.dom" :class="eventType.shade?'popup_content popup_content_show':'popup_content popup_content_no'">
+                        <view class="main" style="border-radius: 20rpx 20rpx 0 0;">
+                            <view @tap="pitch5(item.business_key)" v-for="(item,index) in eventType.list" :key="index" :class="eventType.n==item.business_key?'list1 list_action':'list1'">{{item.business_val}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view v-else>
+                    <view v-if="customerName.dom" @tap="offPop" catchtouchmove='ture' class="shade_popup_h show_popup">
+                    </view>
+                    <view v-if="customerName.dom" :class="customerName.shade?'popup_content_h popup_content_show_22':'popup_content_h popup_content_no_23'">
+                        <view class="top">
+                            <view class="search_top_center">
+                                <image class="img img1" src="../../static/home/search.png"></image>
+                                <input v-model="searchValue" class="input" @input="goSearch(searchValue)" @confirm="goSearch(searchValue)" confirm-type="search" placeholder-class="input_s" placeholder="输入客户名称模糊搜索" type="text">
+                            </view>
+                        </view>
+                        <view class="main">
+                            <view @tap="pitch(item.cust_name)" v-for="(item,index) in customerName.list" :key="index" :class="customerName.n==item.cust_name?'list1 list_action':'list1'">{{item.cust_name}}</view>
+                        </view>
+                    </view>
+                    <view v-if="CustType.dom" @tap="offPop2" catchtouchmove='ture' class="shade_popup_h show_popup">
+                    </view>
+                    <view v-if="CustType.dom" :class="CustType.shade?'popup_content_h popup_content_show_22':'popup_content_h popup_content_no_23'">
+                        <view class="main" style="border-radius: 20rpx 20rpx 0 0;">
+                            <view @tap="pitch2(item.cust_type)" v-for="(item,index) in CustType.list" :key="index" :class="CustType.n==item.cust_type?'list1 list_action':'list1'">{{item.type_name}}</view>
+                        </view>
+                    </view>
+                    <view v-if="sale.dom" @tap="offPop4" catchtouchmove='ture' class="shade_popup_h show_popup">
+                    </view>
+                    <view v-if="sale.dom" :class="sale.shade?'popup_content_h popup_content_show_22':'popup_content_h popup_content_no_23'">
+                        <view class="top">
+                            <view class="search_top_center">
+                                <image class="img img1" src="../../static/home/search.png"></image>
+                                <input v-model="searchValue2" class="input" @input="goSearch2(searchValue2)" @confirm="goSearch2(searchValue2)" confirm-type="search" placeholder-class="input_s" placeholder="输入商务名称模糊搜索" type="text">
+                            </view>
+                        </view>
+                        <view class="main">
+                            <view @tap="pitch4(item.sale_name)" v-for="(item,index) in sale.list" :key="index" :class="sale.n==item.sale_name?'list1 list_action':'list1'">{{item.sale_name}}</view>
+                        </view>
+                    </view>
+                    <view v-if="eventType.dom" @tap="offPop5" catchtouchmove='ture' class="shade_popup_h show_popup">
+                    </view>
+                    <view v-if="eventType.dom" :class="eventType.shade?'popup_content_h popup_content_show_22':'popup_content_h popup_content_no_23'">
+                        <view class="main" style="border-radius: 20rpx 20rpx 0 0;">
+                            <view @tap="pitch5(item.business_key)" v-for="(item,index) in eventType.list" :key="index" :class="eventType.n==item.business_key?'list1 list_action':'list1'">{{item.business_val}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <button v-if="toTop" @tap="getTop" class="getTop" hover-class="getTop_hover">
+                <image class="img" src="../static/images/top.png" ></image>
+            </button>
+        </view>
+    </view>
+</template>
+
+<script>
+    import Headertop from "../../components/headertop.vue";
+    import HeaderLandscape from "../components/headerLandscape.vue";
+    import uniCalendar from '@/components/uni-calendar/uni-calendar.vue'
+    import uniIcons from "@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue"
+    import moment from "moment";
+    
+    export default {
+        data() {
+            return {
+                titleTop:"经分面板",
+                isRotating:false,
+                staHeight:"",
+                rpx:1,
+                customDate:{//日期
+                    shade:false,
+                    dom:false,
+                    startDate:"2010-01-01",
+                    endDate:"",
+                    data:{
+                        start:"----年--月--日 ---",
+                        end:"----年--月--日 ---"
+                    },
+                    dateObj:{
+                        start:"",
+                        end:""
+                    },
+                    dufData:"",
+                    value:{
+                        start:"",
+                        end:""
+                    }
+                },
+                searchValue:'',
+                customerList:[],
+                customerName:{//客户
+                    shade:false,
+                    dom:false,
+                    value:"全部客户",
+                    n:"全部客户",
+                    old:"全部客户",
+                    list:[{
+                        cust_name:"全部客户",
+                    }]
+                },
+                CustType:{//类型
+                    shade:false,
+                    dom:false,
+                    value:"类型",
+                    n:"类型",
+                    old:"全部客户类型",
+                    list:[{
+                        "cust_type": "类型",
+                        "type_name": "全部客户类型"
+                    }]
+                },
+                searchValue2:'',
+                saleList:[],
+                sale:{//客户
+                    shade:false,
+                    dom:false,
+                    value:"所属商务",
+                    n:"所属商务",
+                    old:"所属商务",
+                    list:[{
+                        sale_name:"全部商务",
+                    }]
+                },
+                eventType:{//类型
+                    shade:false,
+                    dom:false,
+                    value:"全部业务",
+                    n:"全部业务",
+                    old:"全部业务",
+                    list:[{
+                        "business_key": "全部业务",
+                        "business_val": "全部业务"
+                    }]
+                },
+                slideRatio:'',
+                scrollLeft:'',
+                HHLeft:'',
+                firstX:'',
+                scrollTop:'',
+                list:[],
+                totalPage:0,
+                page:1,
+                load:true,
+                windowHeight:'',//屏幕高度
+                slideYY:'',//显示区域高度
+                slideYYRatio:'',
+                slideYYHeight:'',
+                YYTop:'',
+                scrollActionY:false,
+                toTop:false,
+                Permission:'2'
+            }
+        },
+        components: {
+            Headertop,
+            uniCalendar,
+            HeaderLandscape,
+            uniIcons
+        },
+        onLoad: function(option) {
+
+            console.log(option)
+
+		},
+        onShow(){
+            console.log("状态栏高度");
+			let that = this;
+			wx.getSystemInfo({
+				success: e => {
+                    console.log("设备版本信息",e)
+					console.log("状态栏高度", e.statusBarHeight);
+					that.staHeight = e.statusBarHeight;
+                    that.rpx = e.windowWidth / 750;
+                    that.windowHeight=e.windowHeight
+				}
+            });
+
+
+            wx.onWindowResize(function(res) {
+                console.log("切换",res)
+                if (res.deviceOrientation === 'landscape') {
+                    that.isRotating = true;
+                    that.windowHeight=res.size.windowHeight
+                } else {
+                    that.isRotating = false;
+                    that.windowHeight=res.size.windowHeight
+                }
+            })
+
+
+
+            // // // 列表总宽度
+            var totalLength = 1286;
+            // 显示区域宽度
+            var slideLength = 468;
+            // 比例
+            var slideRatio = slideLength/totalLength;
+            this.slideRatio=slideRatio
+
+            this.getDataAuth()
+            .then((res)=>{
+                console.log(res)
+                this.Permission=res
+            })
+
+
+        },
+        onReady(){
+            let nowDate = new Date();
+            let endTime=nowDate.getTime() - 24 * 60 * 60 * 1000
+            let startTime=nowDate.getTime() -7 * 24 * 60 * 60 * 1000
+            this.customDate.value.start=moment(startTime).format('YYYY.MM.DD')
+            this.customDate.value.end=moment(endTime).format('YYYY.MM.DD')
+            this.customDate.dateObj.start=moment(startTime).format('YYYY-MM-DD')
+            this.customDate.dateObj.end=moment(endTime).format('YYYY-MM-DD')
+
+            this.getBusinessDetail(moment(startTime).format('YYYY-MM-DD'),moment(endTime).format('YYYY-MM-DD'),"","","","",1)
+            .then((res)=>{
+                console.log("初始化列表",res)
+                this.list=res.list
+                this.totalPage=res.totalPage
+                if(this.totalPage <= 1){
+                    this.load=false
+                }else{
+                    this.load=true
+                    this.getBusinessDetail2()
+                }
+
+                // 列表总长度
+                var totalYY=((this.list.length+1)*90)+126
+                // 显示区域长度
+                var slideYY=0
+                if(this.isRotating){
+                    // 横屏
+                    // slideYY=this.windowHeight-40
+                }else{
+                    slideYY=((this.windowHeight-this.staHeight)/this.rpx)-326
+                }
+                this.slideYY=slideYY
+                console.log(totalYY,slideYY)
+                // 比例
+                this.slideYYRatio=slideYY/totalYY
+                if(this.slideYYRatio>1){
+                    this.scrollActionY=false
+                }else{
+                    this.scrollActionY=true
+                }
+                this.slideYYHeight=(slideYY/totalYY)*slideYY
+
+
+            })
+
+            this.getCustName()
+            this.getCustType()
+            this.getSale()
+            this.getEventType()
+            
+        },
+        methods: {
+            getDataAuth() {
+                return new Promise((resolve, reject) => {
+                    this.$post("/apiBusiness.html?f=getDataAuth")
+                        .then((res) => {
+                            console.log("getDataAuth==>获取数据权限", res)
+                            resolve(res.data);
+                        })
+                })
+            },
+            getCustName(){//获取客户名称列表
+                this.$post("/apiBusiness.html?f=getCustName")
+                    .then((res) => {
+                        console.log("getCustName==>获取客户名称列表", res)
+                        this.customerList=res.data
+                        this.customerName.list=this.customerName.list.concat(res.data)
+                    })
+            },
+            getCustType(){//获取客户类型
+                this.$post("/apiBusiness.html?f=getCustType")
+                    .then((res) => {
+                        console.log("getCustType==>获取客户类型", res)
+                        this.CustType.list=this.CustType.list.concat(res.data)
+                    })
+            },
+            getSale(){//获取销售
+                this.$post("/apiBusiness.html?f=getSale")
+                    .then((res) => {
+                        console.log("getSale==>获取销售", res)
+                        this.saleList=res.data
+                        this.sale.list=this.sale.list.concat(res.data)
+                    })
+            },
+            getEventType(){//获取业务线
+                this.$post("/apiBusiness.html?f=getEventType")
+                    .then((res) => {
+                        console.log("getEventType==>获取业务线", res)
+                        this.eventType.list=this.eventType.list.concat(res.data)
+                    })
+            },
+            getBusinessDetail2(){
+                // 客户名
+                let customerName=''
+                if(this.customerName.value!="全部客户"){
+                    customerName=this.customerName.value
+                }
+                // 客户名类型
+                let CustType=''
+                if(this.CustType.n!="类型"){
+                    CustType=this.CustType.n
+                }
+                // 商务销售名
+                let sale=''
+                if(this.sale.value!="所属商务"){
+                    sale=this.sale.value
+                }
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                this.load=true
+                this.page=this.page+1
+                this.getBusinessDetail(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sale,CustType,customerName,this.page)
+                .then((res)=>{
+                    console.log("滚动添加",res)
+                    this.list=this.list.concat(res.list)
+                    // 列表总长度
+                    var totalYY=((this.list.length+1)*90)+126
+                    // 显示区域长度
+                    var slideYY=0
+                    if(this.isRotating){
+                        // 横屏
+                        // slideYY=this.windowHeight-40
+                    }else{
+                        slideYY=((this.windowHeight-this.staHeight)/this.rpx)-326
+                    }
+                    this.slideYY=slideYY
+                    console.log(totalYY,slideYY)
+                    // 比例
+                    if(this.slideYYRatio>1){
+                        this.scrollActionY=false
+                    }else{
+                        this.scrollActionY=true
+                    }
+                    this.slideYYRatio=slideYY/totalYY
+                    this.slideYYHeight=(slideYY/totalYY)*slideYY
+                })
+            },
+            updateBusinessDetail(){
+                // 客户名
+                let customerName=''
+                if(this.customerName.value!="全部客户"){
+                    customerName=this.customerName.value
+                }
+                // 客户名类型
+                let CustType=''
+                if(this.CustType.n!="类型"){
+                    CustType=this.CustType.n
+                }
+                // 商务销售名
+                let sale=''
+                if(this.sale.value!="所属商务"){
+                    sale=this.sale.value
+                }
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                this.list=[]
+                this.getBusinessDetail(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sale,CustType,customerName,1)
+                .then((res)=>{
+                    console.log("初始化列表",res)
+                    this.list=res.list
+                    this.page=1
+                    this.totalPage=res.totalPage
+                    if(this.totalPage <= 1){
+                        this.load=false
+                    }else{
+                        this.load=true
+                        this.getBusinessDetail2()
+                    }
+                        // 列表总长度
+                        var totalYY=((this.list.length+1)*90)+126
+                        // 显示区域长度
+                        var slideYY=0
+                        if(this.isRotating){
+                            // 横屏
+                            // slideYY=this.windowHeight-40
+                        }else{
+                            slideYY=((this.windowHeight-this.staHeight)/this.rpx)-326
+                        }
+                        this.slideYY=slideYY
+                        console.log(totalYY,slideYY)
+                        // 比例
+                        this.slideYYRatio=slideYY/totalYY
+                        if(this.slideYYRatio>1){
+                            this.scrollActionY=false
+                        }else{
+                            this.scrollActionY=true
+                        }
+                        this.slideYYHeight=(slideYY/totalYY)*slideYY
+                })
+            },
+            getBusinessDetail(start,end,businessType,saleName,custType,custName,page) {//获取单个销售业务线数据
+                return new Promise((resolve, reject) => {
+                    let data={
+                        "start":start,
+                        "end":end,
+                        "business_type":businessType,
+                        "sale_name":saleName,
+                        "cust_type":custType,
+                        "cust_name":custName,
+                        "page":page
+                    }
+                    this.$post("/apiBusiness.html?f=getBusinessDetail",data)
+                        .then((res) => {
+                            console.log("getBusinessDetail==>经营详情", res)
+                            resolve(res.data);
+                        })
+                })
+            },
+            change(e) {
+                console.log(e);
+                if(e.range.data.length==0){
+                    console.log("ssssssss")
+                    if(e.range.before){
+                        this.customDate.data.start=this.getTimeForm(e.range.before)
+                    }else{
+                        this.customDate.data.start="----年--月--日 ---"
+                        this.customDate.data.end="----年--月--日 ---"
+                    }
+                }else{
+                    this.customDate.dateObj.start=e.range.data[0]
+                    this.customDate.dateObj.end=e.range.data[e.range.data.length-1]
+                    this.customDate.data.start=this.getTimeForm(e.range.data[0])
+                    this.customDate.data.end=this.getTimeForm(e.range.data[e.range.data.length-1])
+                }
+            },
+            goSearch(str){
+                console.log(str)
+                str = str.replace(/(^\s*)|(\s*$)/g, "")
+                let arrSearch = []
+                if (str != "") {
+                    for (var i = 0; i < this.customerList.length; i++) {
+                        if (this.customerList[i].cust_name.indexOf(str) >= 0) {
+                            arrSearch.push(this.customerList[i]);
+                        }
+                    }
+                } else {
+                    console.log("空")
+                    arrSearch=[{
+                        cust_name:"全部客户",
+                    }]
+                    arrSearch = arrSearch.concat(this.customerList)
+                }
+                this.customerName.list=arrSearch
+            },
+            goSearch2(str){
+                console.log(str)
+                str = str.replace(/(^\s*)|(\s*$)/g, "")
+                let arrSearch = []
+                if (str != "") {
+                    for (var i = 0; i < this.saleList.length; i++) {
+                        if (this.saleList[i].sale_name.indexOf(str) >= 0) {
+                            arrSearch.push(this.saleList[i]);
+                        }
+                    }
+                } else {
+                    console.log("空")
+                    arrSearch=[{
+                        sale_name:"全部商务",
+                    }]
+                    arrSearch = arrSearch.concat(this.saleList)
+                }
+                this.sale.list=arrSearch
+            },
+            pitch(name){
+                console.log(name)
+                this.customerName.n=name
+                this.customerName.value=name
+                if(name=="全部商务"){
+                    this.CustType.value="所属商务"
+                }
+                this.updateBusinessDetail()
+            
+                this.offPop()
+            },
+            pitch2(id){
+                console.log(id)
+                let CustType=''
+
+                this.CustType.n=id
+                
+                this.CustType.list.map((item)=>{
+                    if(item.cust_type==id){
+                        this.CustType.value=item.type_name
+                    }
+                    if(id=="类型"){
+                        this.CustType.value="类型"
+                    }
+                })
+                this.updateBusinessDetail()
+            
+                this.offPop2()
+            },
+            pitch4(name){
+                console.log(name)
+                this.sale.n=name
+                this.sale.value=name
+                if(name=="全部商务"){
+                    this.sale.value="所属商务"
+                }
+                this.updateBusinessDetail()
+            
+                this.offPop4()
+            },
+            pitch5(id){
+                console.log(id)
+                let eventType=''
+
+                this.eventType.n=id
+                
+                this.eventType.list.map((item)=>{
+                    if(item.business_key==id){
+                        this.eventType.value=item.business_val
+                    }
+                })
+                this.updateBusinessDetail()
+            
+                this.offPop5()
+            },
+            showPop(id){
+                this.customerName.old=id
+                console.log(this.customerName.n)
+                console.log(this.customerName.value)
+                setTimeout(() => {
+                    this.customerName.dom = true
+                    this.customerName.shade = true
+				}, 100)
+            },
+            showPop2(id){
+                this.CustType.old=id
+                console.log(this.CustType.n)
+                console.log(this.CustType.value)
+                setTimeout(() => {
+                    this.CustType.dom = true
+                    this.CustType.shade = true
+				}, 100)
+            },
+            showPop4(id){
+                this.sale.old=id
+                console.log(this.sale.n)
+                console.log(this.sale.value)
+                setTimeout(() => {
+                    this.sale.dom = true
+                    this.sale.shade = true
+				}, 100)
+            },
+            showPop5(id){
+                this.eventType.old=id
+                console.log(this.eventType.n)
+                console.log(this.eventType.value)
+                setTimeout(() => {
+                    this.eventType.dom = true
+                    this.eventType.shade = true
+				}, 100)
+            },
+            showPop3(id){
+                setTimeout(() => {
+                    this.customDate.dom = true
+                    this.customDate.shade = true
+				}, 100)
+            },
+            offPop(){
+                setTimeout(() => {
+					this.customerName.shade = false		
+                    setTimeout(() => {
+                        this.customerName.dom = false
+                    }, 200)
+				}, 100)
+            },
+            offPop2(){
+                setTimeout(() => {
+					this.CustType.shade = false		
+                    setTimeout(() => {
+                        this.CustType.dom = false
+                    }, 200)
+				}, 100)
+            },
+            offPop4(){
+                setTimeout(() => {
+					this.sale.shade = false		
+                    setTimeout(() => {
+                        this.sale.dom = false
+                    }, 200)
+				}, 100)
+            },
+            offPop5(){
+                setTimeout(() => {
+					this.eventType.shade = false		
+                    setTimeout(() => {
+                        this.eventType.dom = false
+                    }, 200)
+				}, 100)
+            },
+            offPop3(){
+                setTimeout(() => {
+					this.customDate.shade = false		
+                    setTimeout(() => {
+                        this.customDate.dom = false
+                    }, 200)
+				}, 100)
+            },
+
+            getTimeForm(str){
+                let t1= new Date(str)
+                console.log("t1",t1)
+                let day=""
+                switch (t1.getDay()) {
+                    case 0:
+                        day = "星期天";
+                        break;
+                    case 1:
+                        day = "星期一";
+                        break;
+                    case 2:
+                        day = "星期二";
+                        break;
+                    case 3:
+                        day = "星期三";
+                        break;
+                    case 4:
+                        day = "星期四";
+                        break;
+                    case 5:
+                        day = "星期五";
+                        break;
+                    case 6:
+                        day = "星期六";
+                }
+               return moment(t1).format("YYYY")+"年"+ moment(t1).format("MM")+"月"+ moment(t1).format("DD")+"日 "+day;
+            },
+            confirmTime(){
+                console.log("confirmTime")
+                console.log(this.customDate.dateObj.start)
+                console.log(this.customDate.dateObj.end)
+                let t1=new Date(this.customDate.dateObj.start)
+                let t2=new Date(this.customDate.dateObj.end)
+                let days=t2.getTime() - t1.getTime()
+                days= Math.floor(days / (24 * 3600 * 1000))
+                if(this.customDate.data.start=="----年--月--日 ---"){
+                    uni.showToast({
+                        title: "请选择开始时间",
+                        icon:'none',
+                        duration: 2000
+                    });
+                    return
+                }else if(this.customDate.data.end=="----年--月--日 ---"){
+                    uni.showToast({
+                        title: "请选择结束时间",
+                        icon:'none',
+                        duration: 2000
+                    });
+                    return
+                }
+                console.log("days",days)
+                // if(days>30){
+                //     uni.showToast({
+                //         title: "时间范围不能超出一个月",
+                //         icon:'none',
+                //         duration: 2000
+                //     });
+                // }else{
+                    this.customDate.value.start=moment(this.customDate.dateObj.start).format('YYYY.MM.DD')
+                    this.customDate.value.end=moment(this.customDate.dateObj.end).format('YYYY.MM.DD')
+                    this.offPop3()
+                    if(this.slideYYRatio>1){
+                        this.scrollActionY=false
+                    }else{
+                        this.scrollActionY=true
+                    }
+                    this.updateBusinessDetail()
+                // }
+                
+            },
+            getScrollBottom(e){
+                console.log(e)
+
+                if(this.slideYYRatio>1){
+                    this.scrollActionY=false
+                }else{
+                    this.scrollActionY=true
+                }
+                let customerName=''
+                if(this.customerName.value!="全部客户"){
+                    customerName=this.customerName.value
+                }
+                // 客户名类型
+                let CustType=''
+                if(this.CustType.n!="类型"){
+                    CustType=this.CustType.n
+                }
+                // 商务销售名
+                let sale=''
+                if(this.sale.value!="所属商务"){
+                    sale=this.sale.value
+                }
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                if(e.detail.direction=="bottom"){
+                    if(this.page<this.totalPage){
+                        this.load=true
+                        this.page=this.page+1
+                        this.getBusinessDetail(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sale,CustType,customerName,this.page)
+                        .then((res)=>{
+                            console.log("滚动添加",res)
+                            this.list=this.list.concat(res.list)
+                            // 列表总长度
+                            var totalYY=((this.list.length+1)*90)+126
+                            // 显示区域长度
+                            var slideYY=0
+                            if(this.isRotating){
+                                // 横屏
+                                // slideYY=this.windowHeight-40
+                            }else{
+                                slideYY=((this.windowHeight-this.staHeight)/this.rpx)-326
+                            }
+                            this.slideYY=slideYY
+                            console.log(totalYY,slideYY)
+                            // 比例
+                            // if(this.slideYYRatio>1){
+                            //     this.scrollActionY=false
+                            // }else{
+                            //     this.scrollActionY=true
+                            // }
+                            this.slideYYRatio=slideYY/totalYY
+                            this.slideYYHeight=(slideYY/totalYY)*slideYY
+                        })
+                    }else{
+                        this.load=false
+                    }
+                }
+            },
+            getScroll(e) {
+                console.log(e)
+
+                if(e.detail.scrollTop>100){
+                    this.toTop=true
+                }else{
+                    this.toTop=false
+                }
+
+
+                // 横向滚动条
+                this.HHLeft=(e.detail.scrollLeft)*this.slideRatio
+                console.log(this.HHLeft)
+                // 纵向滚动条
+                this.YYTop=(e.detail.scrollTop)*this.slideYYRatio
+                if(this.YYTop>=672*this.rpx){
+                    this.YYTop=336*this.rpx*2
+                }
+                console.log(this.YYTop)
+            },
+            getScrollTop(e){
+                console.log(e)
+                this.YYTop=(e.detail.scrollTop)*this.slideYYRatio
+                console.log(this.YYTop)
+            },
+            HHMoveEvent(e){
+                 console.log(e)
+                 var touchs = e.touches[0];
+                 var pageX = touchs.pageX;
+                    console.log(this.rpx)  
+                 this.HHLeft=pageX-(146*this.rpx*2)
+                if(pageX-(146*this.rpx*2)<=0){
+                    this.HHLeft=0
+                }
+                if(pageX-(146*this.rpx*2)>=290*this.rpx){
+                    this.HHLeft=145*this.rpx*2
+                }
+                
+
+                 this.scrollLeft=this.HHLeft/this.slideRatio
+                 console.log(this.scrollLeft)
+                 console.log('移动' + pageX)
+
+            },
+            HHStartEvent(e){
+                console.log("开始",e)
+                // this.firstX=e.touches[0].pageX
+            },
+            HHEndEvent(e){
+                console.log("结束",e)
+                // this.HHLeft=e.touches[0].pageX
+
+            },
+            YYMoveEvent(e){
+                console.log(e)
+                var touchs = e.touches[0];
+                var pageY = touchs.pageY;
+                this.YYTop=pageY-(326*this.rpx*2)
+                if(pageY-(326*this.rpx*2)<=0){
+                    this.YYTop=0
+                }
+                if(pageY-(326*this.rpx*2)>=672*this.rpx){
+                    this.YYTop=336*this.rpx*2
+                }
+
+                this.scrollTop=this.YYTop/this.slideYYRatio
+                console.log(this.scrollTop)
+                console.log('移动' + pageY)
+
+            },
+            YYStartEvent(e){
+                console.log("开始",e)
+                // this.firstX=e.touches[0].pageX
+            },
+            YYEndEvent(e){
+                console.log("结束",e)
+                // this.HHLeft=e.touches[0].pageX
+
+            },
+            getTop(){
+                console.log("回到顶部")
+                // this.scrollTop=this.YYTop/this.slideYYRatio
+                if(this.scrollTop==2){
+                    this.scrollTop=1
+                }else{
+                    this.scrollTop=2
+                }
+                console.log("距离",this.scrollTop)
+            }
+        },
+    }
+</script>
+
+<style lang='scss' >
+    //css函数
+@function tovmin($rpx){//$rpx为需要转换的字号
+    @return #{$rpx * 100 / 750}vmin; 
+}
+
+    .huitiao{
+        height: tovmin(20);
+        background: #EFEFF3;
+    }
+
+    .oaPanel{
+        .oaPanel_main{
+            // 标题
+            .oaPanel_title{
+                height:tovmin(160);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: tovmin(32);
+                box-shadow:0px 0px tovmin(9) 0px rgba(213,213,213,0.4);
+                .title{
+                    font-size: tovmin(32);
+                    line-height: tovmin(32);
+                    margin-bottom: tovmin(13);
+                    color: #232323;
+                }
+                .txt{
+                    font-size: tovmin(20);
+                    line-height: tovmin(20);
+                    color: #959595;
+                }
+            }
+            // 表格
+            .oaPanel_Table{
+                position: relative;
+                border-radius:tovmin(6);
+                // box-shadow:0 0 tovmin(9) 0 rgba(213,213,213,0.4);
+                .oaPanel_Table_time{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: tovmin(20) tovmin(32);
+                    .Table_time{
+                        display: flex;
+                        align-items: center;
+                        height: tovmin(26);
+                        .time{
+                            font-size: tovmin(24);
+                            line-height: tovmin(24);
+                            color: #797979;
+                            margin-right: tovmin(14);
+                        }
+                        .img{
+                            width: tovmin(30);
+                            height: tovmin(26);
+                            display: block;
+                        }
+                    }
+                    .tishi{
+                        font-size: tovmin(20);
+                        line-height: tovmin(20);
+                        color: #959595;
+                    }
+                }
+                .oaPanel_Table_list{
+                    width: 750rpx;
+                    max-height: calc(100vh - (var(--status-bar-height) + 326rpx));
+                    
+                    .oaPanel_Table_list_main{
+                        display: flex;
+                        width: 750rpx;
+                        
+                    }
+
+
+                    ::-webkit-scrollbar {
+                        height: tovmin(16);
+                        width: tovmin(16);
+                        color:#ffffff;
+                        background: transparent;
+
+                    }
+
+                    /*定义滚动条轨道 内阴影+圆角*/
+                    ::-webkit-scrollbar-track {
+                        // -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+                        // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+                        // border-radius: 10px;
+                        // background-color:transparent;
+                    }
+
+                    /*定义滑块 内阴影+圆角*/
+                    ::-webkit-scrollbar-thumb {
+                        position: absolute;
+                        border-radius: tovmin(10);
+                        -webkit-box-shadow: inset 0 0 tovmin(10) rgba(0, 0, 0, 0.3);
+                        box-shadow: inset 0 0 tovmin(6) rgba(0, 0, 0, 0.1);
+                        background-color:#D5D5D5;
+                    }
+                    
+                    .right{
+                        position: relative;
+                        overflow-y: overlay;
+                        max-height: calc(100vh - (var(--status-bar-height) + 326rpx));
+                        .right_h{
+                            width: tovmin(1550);
+                            .title{  
+                                // position: absolute;
+                                height: tovmin(90);
+                                font-size: tovmin(25);
+                                color: #949494;
+                                display: flex;
+                                align-items: center;
+                                background: #F7F7FD;
+                                .title_item{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding: 0 tovmin(24);
+                                    background: #F7F7FD;
+                                    text-align: center;
+                                    .img{
+                                        margin-left: tovmin(12);
+                                        width: tovmin(16);
+                                        height: tovmin(10);
+                                        display: block;
+                                    }
+                                }
+                                .title_item1{
+                                    width: tovmin(100);
+                                }
+                                .title_item2{
+                                    width: tovmin(150);
+                                }
+                                .title_item3{
+                                    width: tovmin(190);
+                                }
+                                .title_item4{
+                                    width: tovmin(220);
+                                }
+                                .title_item_left{
+                                    height: tovmin(90);
+                                    font-size: tovmin(25);
+                                    color: #949494;
+                                    display: flex;
+                                    // justify-content: center;
+                                    align-items: center;
+                                    line-height: tovmin(90);
+                                    padding: 0 tovmin(32);
+                                    width: tovmin(200);
+                                    background: #F7F7FD;
+                                    border-right: tovmin(1) solid #E9E9E9;
+                                    .img{
+                                        margin-left: tovmin(12);
+                                        width: tovmin(16);
+                                        height: tovmin(10);
+                                        display: block;
+                                    }
+                                    .txt{
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+                                .popItem{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    .txt{
+                                        max-width: tovmin(160);
+                                    }
+                                }
+                            }
+                            
+                            .list{ 
+                                height: tovmin(90);
+                                font-size: tovmin(24);
+                                color: #242424;
+                                display: flex;
+                                align-items: center;
+                                background: #fff;
+                                .title_item{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    // padding: 0 tovmin(24);
+                                    background: #fff;
+                                    .img{
+                                        margin-left: tovmin(12);
+                                        width: tovmin(16);
+                                        height: tovmin(10);
+                                        display: block;
+                                    }
+                                }
+                                .title_item1{
+                                    width: tovmin(148);
+                                }
+                                .title_item2{
+                                    width: tovmin(198);
+                                }
+                                .title_item3{
+                                    width: tovmin(238);
+                                }
+                                .title_item4{
+                                    width: tovmin(268);
+                                }
+                                .title_item_left1{
+                                    height: tovmin(90);
+                                    font-size: tovmin(24);
+                                    color: #242424;
+                                    display: flex;
+                                    // justify-content: center;
+                                    align-items: center;
+                                    line-height: tovmin(90);
+                                    padding: 0 tovmin(32);
+                                    width: tovmin(200);
+                                    background: #fff;
+                                    border-right: tovmin(1) solid #E9E9E9;
+                                    .txt{
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+
+                            }
+                            .list:nth-child(2n-1){
+                                background: #F7F7FD;
+                                .title_item{
+                                    background: #F7F7FD;
+                                }
+                               .title_item_left1{
+                                    background: #F7F7FD;
+                                }
+                            } 
+                        }
+                        .right_h4{
+                            width: tovmin(1710);
+                        }
+
+                    }
+                    .right1{
+                        max-height: tovmin(750-326) !important;
+                        .right_h{
+                            width: 100% !important;
+                            .title{
+                                justify-content: space-around;
+                                .title_item{
+                                    padding: 0 !important;
+                                }
+                                .title_item1{
+                                    width: tovmin(110);
+                                }
+                                .title_item2{
+                                    width: tovmin(146);
+                                }
+                                .title_item3{
+                                    width: tovmin(162);
+                                }
+                                .title_item4{
+                                    width: tovmin(210);
+                                }
+                                .title_item5{
+                                    width: tovmin(142);
+                                }
+                                .title_item_left{
+
+                                }
+                            }
+                            .list{
+                                justify-content: space-around;
+                                .title_item1{
+                                    width: tovmin(110);
+                                }
+                                .title_item2{
+                                    width: tovmin(146);
+                                }
+                                .title_item3{
+                                    width: tovmin(162);
+                                }
+                                .title_item4{
+                                    width: tovmin(210);
+                                }
+                                .title_item5{
+                                    width: tovmin(142);
+                                }
+                                .title_item_left1{
+                                    width: tovmin(200);
+                                }
+                            }
+                        }
+                    }
+                    .list_footer{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: tovmin(750);
+                        height: tovmin(126);
+                        .img{
+                            width: tovmin(324);
+                            height: tovmin(28);
+                        }
+                        .load_footer{
+                            height: tovmin(126) !important;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            >.txt{
+                                padding-left:tovmin(45);
+                                position: relative;
+                                font-size: tovmin(26);
+                                color: rgba(0,0,0,0.4);
+                            }
+                            .load_icon{
+                                position: absolute;
+                                left: 0;
+                                top: tovmin(-4);
+                                animation:myfirstIcon 1.5s linear infinite; 
+                                .uni-icons{
+                                    font-size: tovmin(38) !important;
+                                    color: rgba(0,0,0,0.4) !important;
+                                }
+                            }
+                        }
+                        
+                    }
+                    .list_footer1{
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+@keyframes myfirstIcon {
+	0% {
+        transform:rotate(0deg);
+    }
+    50% {
+        transform:rotate(180deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+//日历_first
+    .shade_popup {
+        position: fixed;
+        top: calc(var(--status-bar-height) + 80rpx);
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.4);	
+    }
+    .popup_content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        background: #fff;
+        height: 560rpx;
+        z-index: 101;
+        border-radius: 20rpx 20rpx 0 0;
+        // padding-bottom: 60rpx;
+        .top{
+            border-radius: 20rpx 20rpx 0 0;
+            background: #EFEFF4;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 29rpx;
+            height: 110rpx;
+            align-items: center;
+            .off{
+                font-size: 30rpx;
+                color: #999999;
+            }
+            .on{
+                font-size: 30rpx;
+                color: #357DF5; 
+            }
+        }
+        .search_top_center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 60rpx;
+            background: rgba(255, 255, 255, 1);
+            // box-shadow: 0px 2rpx 10rpx 0px rgba(213, 213, 213, 1);
+            border-radius: 6rpx;
+            width: 100%;
+            >.input{
+                width: 100%;
+                height: 100%;
+                padding-left:66rpx;
+                padding-right:54rpx;
+                font-size:26rpx;
+                position: relative;
+                z-index: 1;
+            }
+            .input_s{
+                font-size:26rpx;
+                color: #BBBBBB;
+            }
+            .img {
+                width: 30rpx !important;
+                height: 30rpx !important;
+                display: block;
+                z-index: 2;
+            }
+            >.img1{
+                position: absolute;
+                left: 24rpx;
+                top: 0;
+                bottom: 0;
+                margin: auto 0 !important;
+            }
+            >.img2{
+                position: absolute;
+                padding: 0 24rpx;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+            }
+            
+        }
+        .main{
+            height: 450rpx;
+            overflow: scroll;
+
+            .list1{
+                background: #FFFFFF;
+                font-size: 28rpx;
+                color: rgba(36, 36, 36, 0.8);
+                padding: 0 50rpx 0 50rpx;
+                line-height: 82rpx;
+                height: 82rpx;
+            }
+            .list1:nth-child(1){
+                color: rgba(36, 36, 36, 0.6);
+            }
+            .list_action{
+                background: rgba(248, 248, 254, 1);
+                color:rgba(36, 36, 36, 1) !important;
+            }
+        }
+    }
+    .popup_content_show{
+        bottom: 0;
+        animation: myfirst7 0.2s linear;
+    }
+    .popup_content_no{
+        bottom: -668rpx;
+        animation: myfirst8 0.2s linear;
+    }
+
+    .popup_content2{
+        height: 548rpx;
+    }
+    .popup_content_show2{
+        bottom: 0;
+        animation: myfirst9 0.2s linear;
+    }
+    .popup_content_no2{
+        bottom: -608rpx;
+        animation: myfirst10 0.2s linear;
+    }
+
+    .popup_content3{
+        height: 1056rpx;
+        padding-bottom: 0;
+        .top{
+            justify-content: center;
+            position: relative;
+            .title{
+                font-size: 30rpx;
+                color: #666666;
+            }
+            .off_icon{
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                padding: 0 24rpx;
+                .img{
+                    width: 40rpx;
+                    height: 40rpx;
+                    display: block;
+                }
+            }
+        }
+        .main{
+            height: 100%;
+        }
+    }
+    .popup_content_show3{
+        bottom: 0;
+        animation: myfirst11 0.2s linear;
+    }
+    .popup_content_no3{
+        bottom: -1056rpx;
+        animation: myfirst12 0.2s linear;
+    }
+
+    .cal_data{
+        height: 156rpx;
+        display: flex;
+        background: #F5F8FE;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24rpx;
+        padding-bottom: 20rpx;
+        .time_txt{
+            .m1{
+                display: flex;
+                align-items: center;
+                font-size: 28rpx;
+                color: #666666;
+                line-height: 52rpx;
+            }
+        }
+        .time{
+            background: #357DF5;
+            border-radius: 12rpx;
+            width: 200rpx;
+            height: 90rpx;
+            color: #fff;
+            font-size: 40rpx;
+            line-height: 90rpx;
+            margin: 0;
+
+        }
+        .button-hover{
+            background: rgba(106, 156, 243, 0.9);
+        }
+    }
+    @keyframes myfirst7 {
+		0% {
+			bottom: -668rpx;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+    @keyframes myfirst8 {
+		0% {
+			bottom: 0;
+		}
+
+		100% {
+			bottom: -668rpx;
+		}
+	}
+    @keyframes myfirst9 {
+		0% {
+			bottom: -608rpx;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+    @keyframes myfirst10 {
+		0% {
+			bottom: 0;
+		}
+
+		100% {
+			bottom: -608rpx;
+		}
+	}
+    @keyframes myfirst11 {
+		0% {
+			bottom: -1056rpx;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+    @keyframes myfirst12 {
+		0% {
+			bottom: 0;
+		}
+
+		100% {
+			bottom: -1056rpx;
+		}
+	}
+.uni-calendar__backtoday{
+    display: none;
+    
+}
+
+.uni-calendar-item--multiple{
+    background:#DEE9FF !important;
+    color: #357DF5 !important;
+}
+
+.uni-calendar-item--checked{
+    background-color: #DEE9FF !important;
+    color: #357DF5 !important;
+}
+.uni-calendar-item--after-checked .uni-calendar-item__weeks-box-item,
+.uni-calendar-item--before-checked .uni-calendar-item__weeks-box-item{
+    background: #357DF5 !important;
+    .uni-calendar-item--checked{
+        background-color: #357DF5 !important;
+    }
+    text{
+        background-color: #357DF5 !important;
+        color: #fff !important;
+    }
+}
+.uni-calendar-item--before-checked,.uni-calendar-item--after-checked{
+    background-color: #357DF5 !important;
+}
+//日历_end
+
+// 横屏日历
+.shade_popup_h{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.4);	
+}
+.h_pop{
+    position: fixed;
+    // top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: tovmin(1125);
+    background: #fff;
+    margin: 0 auto;
+    z-index: 101;
+    border-radius: tovmin(20) tovmin(20) 0 0;
+    .top{
+        justify-content: center;
+        position: relative;
+        background: rgba(53,125,245,0.05);
+        display: flex;
+        padding: 0 tovmin(24);
+        height: tovmin(80);
+        align-items: center;
+        .title{
+            font-size: tovmin(30);
+            color: #666666;
+        }
+        .off_icon{
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 tovmin(24);
+            .img{
+                width: tovmin(40);
+                height: tovmin(40);
+                display: block;
+            }
+        }
+    }
+    .main{
+        display: flex;
+        .main_calendar{
+            width: tovmin(680);
+        }
+        .uni-calendar__header{
+            height: tovmin(80);
+            .uni-calendar__header-btn-box{
+                width: tovmin(80);
+                height: tovmin(80);
+            }
+            .uni-calendar__header-text{
+                font-size: tovmin(28);
+            }
+        }
+        .uni-calendar-item__weeks-box-item{
+            width: tovmin(80);
+            height: tovmin(80);
+            .uni-calendar-item__weeks-box-text{
+                font-size: tovmin(28);
+            }
+            .uni-calendar-item__weeks-lunar-text{
+                font-size: tovmin(24);
+
+            }
+        }
+        .cal_data_h{
+            width: tovmin(445);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .time_txt{
+                margin-top: tovmin(150);
+                .m1{
+                    display: flex;
+                    align-items: center;
+                    font-size: tovmin(28);
+                    color: #666666;
+                    line-height: tovmin(52);
+                }
+            }
+            .time{
+                background: #357DF5;
+                border-radius: tovmin(12);
+                width: tovmin(200);
+                height: tovmin(90);
+                color: #fff;
+                font-size: tovmin(40);
+                line-height: tovmin(90);
+                margin: 0;
+                margin-bottom: tovmin(50);
+            }
+        }
+    }
+}
+
+.popup_content_show20{
+    bottom: 0;
+    animation: myfirst20 0.2s linear;
+}
+.popup_content_no21{
+    bottom: -1036rpx;
+    animation: myfirst21 0.2s linear;
+}
+
+
+    .popup_content_h {
+        position: fixed;
+        left: 0;
+        right: 0;
+        background: #fff;
+        height: tovmin(560);
+        width: tovmin(750);
+        margin: 0 auto;
+        z-index: 101;
+        border-radius: tovmin(20) tovmin(20) 0 0;
+        // padding-bottom: tovmin(60);
+        .top{
+            border-radius: tovmin(20) tovmin(20) 0 0;
+            background: #EFEFF4;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 tovmin(29);
+            height: tovmin(110);
+            align-items: center;
+            .off{
+                font-size: tovmin(30);
+                color: #999999;
+            }
+            .on{
+                font-size: tovmin(30);
+                color: #357DF5; 
+            }
+        }
+        .search_top_center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: tovmin(60);
+            background: rgba(255, 255, 255, 1);
+            // box-shadow: 0px tovmin(2) tovmin(10) 0px rgba(213, 213, 213, 1);
+            border-radius: tovmin(6);
+            width: 100%;
+            >.input{
+                width: 100%;
+                height: 100%;
+                padding-left:tovmin(66);
+                padding-right:tovmin(54);
+                font-size:tovmin(26);
+                position: relative;
+                z-index: 1;
+            }
+            .input_s{
+                font-size:tovmin(26);
+                color: #BBBBBB;
+            }
+            .img {
+                width: tovmin(30) !important;
+                height: tovmin(30) !important;
+                display: block;
+                z-index: 2;
+            }
+            >.img1{
+                position: absolute;
+                left: tovmin(24);
+                top: 0;
+                bottom: 0;
+                margin: auto 0 !important;
+            }
+            >.img2{
+                position: absolute;
+                padding: 0 tovmin(24);
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+            }
+            
+        }
+        .main{
+            height: tovmin(450);
+            overflow: scroll;
+
+            .list1{
+                background: #FFFFFF;
+                font-size: tovmin(28);
+                color: rgba(36, 36, 36, 0.8);
+                padding: 0 tovmin(50) 0 tovmin(50);
+                line-height: tovmin(82);
+                height: tovmin(82);
+            }
+            .list1:nth-child(1){
+                color: rgba(36, 36, 36, 0.6);
+            }
+            .list_action{
+                background: rgba(248, 248, 254, 1);
+                color:rgba(36, 36, 36, 1) !important;
+            }
+        }
+    }
+    .popup_content_show_22{
+        bottom: 0;
+        animation: myfirst20 0.2s linear;
+    }
+    .popup_content_no_23{
+        bottom: -668rpx;
+        animation: myfirst21 0.2s linear;
+    }
+@keyframes myfirst20 {
+    0% {
+        bottom: -750rpx;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+@keyframes myfirst21 {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -750rpx;
+    }
+}
+
+// 横屏日历_end
+
+
+
+
+.scrollHH{
+    position: absolute;
+    left: tovmin(270);
+    bottom: 0;
+    width: tovmin(468);
+    height: tovmin(20);
+    .scrollHH_long{
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        height: tovmin(16);
+        background: #D5D5D5;
+        border-radius: tovmin(6);
+    }
+}
+.scrollHH2{
+    width: tovmin(468);
+    height: tovmin(20);
+    margin-left: tovmin(272);
+    bottom:0;
+    left:tovmin(272);
+    .scrollHH_long{
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        height: tovmin(16);
+        background: #D5D5D5;
+        border-radius: tovmin(6);
+    }
+}
+.scrollYY{
+    position: absolute;
+    right: 0;
+    top:tovmin(156);
+    bottom: 0;
+    width: tovmin(40);
+    z-index: 10;
+    .scrollYY_long{
+        position:absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: tovmin(16);
+        background: #D5D5D5;
+        border-radius: tovmin(6);
+    }
+}
+.getTop{
+    width: tovmin(65);
+    height: tovmin(65);
+    position: fixed;
+    bottom: tovmin(24);
+    right: tovmin(24);
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0rpx 0rpx tovmin(9) 0rpx rgba(213, 213, 213, 0.4);
+    .img{
+        width: tovmin(65);
+        height: tovmin(65);
+        display: block;
+    }
+}
+.getTop_hover{
+    opacity: 0.8;
+}
+</style>

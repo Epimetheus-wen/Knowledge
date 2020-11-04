@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "东信在线",
+  "usingComponents": {
+    "headertop": "/components/headertop"
+  }
+}

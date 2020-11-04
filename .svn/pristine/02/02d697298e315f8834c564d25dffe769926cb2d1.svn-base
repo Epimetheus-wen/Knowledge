@@ -1,0 +1,955 @@
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pagesA/preList/preList"],{
+
+/***/ 315:
+/*!***********************************************************!*\
+  !*** ./src/main.js?{"page":"pagesA%2FpreList%2FpreList"} ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {
+
+__webpack_require__(/*! uni-pages */ 4);
+
+__webpack_require__(/*! @dcloudio/uni-stat */ 5);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+
+var _preList = _interopRequireDefault(__webpack_require__(/*! ./pagesA/preList/preList.vue */ 316));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+createPage(_preList.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 316:
+/*!****************************************!*\
+  !*** ./src/pagesA/preList/preList.vue ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preList.vue?vue&type=template&id=825ae58c& */ 317);
+/* harmony import */ var _preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./preList.vue?vue&type=script&lang=js& */ 319);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./preList.vue?vue&type=style&index=0&lang=scss& */ 321);
+/* harmony import */ var _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
+
+var renderjs
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null,
+  false,
+  _preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "src/pagesA/preList/preList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 317:
+/*!***********************************************************************!*\
+  !*** ./src/pagesA/preList/preList.vue?vue&type=template&id=825ae58c& ***!
+  \***********************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-0!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./preList.vue?vue&type=template&id=825ae58c& */ 318);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_template_id_825ae58c___WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+
+/***/ 318:
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/pagesA/preList/preList.vue?vue&type=template&id=825ae58c& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components = {
+  "uni-calendar": function() {
+    return Promise.all(/*! import() | components/uni-calendar/uni-calendar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-calendar/uni-calendar")]).then(__webpack_require__.bind(null, /*! @/components/uni-calendar/uni-calendar.vue */ 401))
+  }
+}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ 319:
+/*!*****************************************************************!*\
+  !*** ./src/pagesA/preList/preList.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./preList.vue?vue&type=script&lang=js& */ 320);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 320:
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/pagesA/preList/preList.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _moment = _interopRequireDefault(__webpack_require__(/*! moment */ 26));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Headertop = function Headertop() {
+  __webpack_require__.e(/*! require.ensure | components/headertop */ "components/headertop").then((function () {
+    return resolve(__webpack_require__(/*! ../../components/headertop.vue */ 337));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var HeaderLandscape = function HeaderLandscape() {
+  __webpack_require__.e(/*! require.ensure | pagesA/components/headerLandscape */ "pagesA/components/headerLandscape").then((function () {
+    return resolve(__webpack_require__(/*! ../components/headerLandscape.vue */ 410));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var uniCalendar = function uniCalendar() {
+  Promise.all(/*! require.ensure | components/uni-calendar/uni-calendar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-calendar/uni-calendar")]).then((function () {
+    return resolve(__webpack_require__(/*! @/components/uni-calendar/uni-calendar.vue */ 401));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var uniIcons = function uniIcons() {
+  Promise.all(/*! require.ensure | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then((function () {
+    return resolve(__webpack_require__(/*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 368));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var _default = {
+  data: function data() {
+    return {
+      titleTop: "商务排名",
+      isRotating: false,
+      staHeight: "",
+      dataType: 1,
+      rpx: 1,
+      customDate: {
+        //日期
+        shade: false,
+        dom: false,
+        startDate: "2010-01-01",
+        endDate: "",
+        data: {
+          start: "----年--月--日 ---",
+          end: "----年--月--日 ---"
+        },
+        dateObj: {
+          start: "",
+          end: ""
+        },
+        dufData: "",
+        value: {
+          start: "",
+          end: ""
+        }
+      },
+      sort: {
+        //类型
+        shade: false,
+        dom: false,
+        value: "按营收倒序",
+        n: "2",
+        old: "按营收倒序",
+        list: [{
+          "name": "按营收升序",
+          "id": "1"
+        }, {
+          "name": "按营收倒序",
+          "id": "2"
+        }, {
+          "name": "按成本升序",
+          "id": "3"
+        }, {
+          "name": "按成本倒序",
+          "id": "4"
+        }, {
+          "name": "按毛利升序",
+          "id": "5"
+        }, {
+          "name": "按毛利倒序",
+          "id": "6"
+        }]
+      },
+      eventType: {
+        //类型
+        shade: false,
+        dom: false,
+        value: "全部业务",
+        n: "全部业务",
+        old: "全部业务",
+        list: [{
+          "business_key": "全部业务",
+          "business_val": "全部业务"
+        }]
+      },
+      slideRatio: '',
+      scrollLeft: '',
+      HHLeft: '',
+      firstX: '',
+      scrollTop: '',
+      list: [],
+      totalPage: 0,
+      page: 1,
+      load: true,
+      scrollLeft2: '',
+      scrollTop2: '',
+      list2: [],
+      totalPage2: 0,
+      page2: 1,
+      load2: true,
+      windowHeight: '',
+      //屏幕高度
+      slideYY: '',
+      //显示区域高度
+      slideYYRatio: '',
+      slideYYHeight: '',
+      YYTop: '',
+      scrollActionY: false,
+      toTop: false,
+      Permission: ''
+    };
+  },
+  components: {
+    Headertop: Headertop,
+    uniCalendar: uniCalendar,
+    HeaderLandscape: HeaderLandscape,
+    uniIcons: uniIcons
+  },
+  onLoad: function onLoad(option) {
+    console.log(option);
+  },
+  onShow: function onShow() {
+    var _this = this;
+
+    console.log("状态栏高度");
+    var that = this;
+    wx.getSystemInfo({
+      success: function success(e) {
+        console.log("设备版本信息", e);
+        console.log("状态栏高度", e.statusBarHeight);
+        that.staHeight = e.statusBarHeight;
+        that.rpx = e.windowWidth / 750;
+        that.windowHeight = e.windowHeight;
+        that.slideYY = (that.windowHeight - that.staHeight) / that.rpx - 326;
+      }
+    }); // 获取权限标识
+
+    this.getDataAuth().then(function (res) {
+      console.log(res);
+      _this.Permission = 4;
+    });
+    wx.onWindowResize(function (res) {
+      console.log("切换", res);
+
+      if (res.deviceOrientation === 'landscape') {
+        that.isRotating = true;
+        that.windowHeight = res.size.windowHeight;
+      } else {
+        that.isRotating = false;
+        that.windowHeight = res.size.windowHeight;
+      }
+    }); // // // 列表总宽度
+
+    var totalLength = 1286; // 显示区域宽度
+
+    var slideLength = 468; // 比例
+
+    var slideRatio = slideLength / totalLength;
+    this.slideRatio = slideRatio;
+  },
+  onReady: function onReady() {
+    var _this2 = this;
+
+    var nowDate = new Date();
+    var endTime = nowDate.getTime() - 24 * 60 * 60 * 1000;
+    var startTime = nowDate.getTime() - 7 * 24 * 60 * 60 * 1000;
+    this.customDate.value.start = (0, _moment.default)(startTime).format('YYYY.MM.DD');
+    this.customDate.value.end = (0, _moment.default)(endTime).format('YYYY.MM.DD');
+    this.customDate.dateObj.start = (0, _moment.default)(startTime).format('YYYY-MM-DD');
+    this.customDate.dateObj.end = (0, _moment.default)(endTime).format('YYYY-MM-DD');
+    this.getPreList((0, _moment.default)(startTime).format('YYYY-MM-DD'), (0, _moment.default)(endTime).format('YYYY-MM-DD'), "", "", "", 1).then(function (res) {
+      console.log("初始化列表", res);
+      _this2.list = res.list;
+      _this2.totalPage = res.totalPage;
+
+      if (_this2.totalPage <= 1) {
+        _this2.load = false;
+      } else {
+        _this2.load = true;
+
+        _this2.getPreList2();
+      }
+    });
+    this.getTeamList((0, _moment.default)(startTime).format('YYYY-MM-DD'), (0, _moment.default)(endTime).format('YYYY-MM-DD'), "", "", "", 1).then(function (res) {
+      console.log("初始化列表", res);
+      _this2.list2 = res.list;
+      _this2.totalPage2 = res.totalPage;
+
+      if (_this2.totalPage2 <= 1) {
+        _this2.load2 = false;
+      } else {
+        _this2.load2 = true;
+
+        _this2.getTeamList();
+      }
+    });
+    this.getEventType();
+  },
+  methods: {
+    getDataAuth: function getDataAuth() {
+      var _this3 = this;
+
+      return new Promise(function (resolve, reject) {
+        _this3.$post("/apiBusiness.html?f=getDataAuth").then(function (res) {
+          console.log("getDataAuth==>获取数据权限", res);
+          resolve(res.data);
+        });
+      });
+    },
+    getEventType: function getEventType() {
+      var _this4 = this;
+
+      //获取业务线
+      this.$post("/apiBusiness.html?f=getEventType").then(function (res) {
+        console.log("getEventType==>获取业务线", res);
+        _this4.eventType.list = _this4.eventType.list.concat(res.data);
+      });
+    },
+    getPreList2: function getPreList2() {
+      var _this5 = this;
+
+      // 业务类型
+      var eventType = '';
+
+      if (this.eventType.n != "全部业务") {
+        eventType = this.eventType.n;
+      }
+
+      var sort = '';
+      var sSort = '';
+
+      if (this.sort.n == 1) {
+        sort = "asc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 2) {
+        sort = "desc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 3) {
+        sort = "asc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 4) {
+        sort = "desc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 5) {
+        sort = "asc";
+        sSort = "profit";
+      }
+
+      if (this.sort.n == 6) {
+        sort = "desc";
+        sSort = "profit";
+      }
+
+      this.load = true;
+      this.page = this.page + 1;
+      this.getPreList(this.customDate.dateObj.start, this.customDate.dateObj.end, eventType, sort, sSort, this.page).then(function (res) {
+        console.log("滚动添加", res);
+        _this5.list = _this5.list.concat(res.list);
+      });
+    },
+    getTeamList2: function getTeamList2() {
+      var _this6 = this;
+
+      // 业务类型
+      var eventType = '';
+
+      if (this.eventType.n != "全部业务") {
+        eventType = this.eventType.n;
+      }
+
+      var sort = '';
+      var sSort = '';
+
+      if (this.sort.n == 1) {
+        sort = "asc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 2) {
+        sort = "desc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 3) {
+        sort = "asc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 4) {
+        sort = "desc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 5) {
+        sort = "asc";
+        sSort = "profit";
+      }
+
+      if (this.sort.n == 6) {
+        sort = "desc";
+        sSort = "profit";
+      }
+
+      this.load2 = true;
+      this.page2 = this.page2 + 1;
+      this.getTeamList(this.customDate.dateObj.start, this.customDate.dateObj.end, eventType, sort, sSort, this.page2).then(function (res) {
+        console.log("滚动添加", res);
+        _this6.list2 = _this6.list2.concat(res.list);
+      });
+    },
+    updatePreList: function updatePreList() {
+      var _this7 = this;
+
+      // 业务类型
+      var eventType = '';
+
+      if (this.eventType.n != "全部业务") {
+        eventType = this.eventType.n;
+      }
+
+      var sort = '';
+      var sSort = '';
+
+      if (this.sort.n == 1) {
+        sort = "asc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 2) {
+        sort = "desc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 3) {
+        sort = "asc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 4) {
+        sort = "desc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 5) {
+        sort = "asc";
+        sSort = "profit";
+      }
+
+      if (this.sort.n == 6) {
+        sort = "desc";
+        sSort = "profit";
+      }
+
+      this.list = [];
+      this.list2 = [];
+      this.getPreList(this.customDate.dateObj.start, this.customDate.dateObj.end, eventType, sort, sSort, 1).then(function (res) {
+        console.log("初始化列表", res);
+        _this7.list = res.list;
+        _this7.page = 1;
+        _this7.totalPage = res.totalPage;
+
+        if (_this7.totalPage <= 1) {
+          _this7.load = false;
+        } else {
+          _this7.load = true;
+
+          _this7.getPreList2();
+        }
+      });
+      this.getTeamList(this.customDate.dateObj.start, this.customDate.dateObj.end, eventType, sort, sSort, 1).then(function (res) {
+        console.log("初始化列表", res);
+        _this7.list2 = res.list;
+        _this7.page2 = 1;
+        _this7.totalPage2 = res.totalPage;
+
+        if (_this7.totalPage2 <= 1) {
+          _this7.load2 = false;
+        } else {
+          _this7.load2 = true;
+
+          _this7.getTeamList2();
+        }
+      });
+    },
+    getPreList: function getPreList(start, end, businessType, sort, sSort, page) {
+      var _this8 = this;
+
+      //员工排名
+      return new Promise(function (resolve, reject) {
+        var data = {
+          "start": start,
+          "end": end,
+          "business_type": businessType,
+          "sort": sort,
+          "s_sort": sSort,
+          "page": page
+        };
+
+        _this8.$post("/apiBusiness.html?f=getPreList", data).then(function (res) {
+          console.log("getPreList==>员工排名", res);
+          resolve(res.data);
+        });
+      });
+    },
+    getTeamList: function getTeamList(start, end, businessType, sort, sSort, page) {
+      var _this9 = this;
+
+      //员工排名
+      return new Promise(function (resolve, reject) {
+        var data = {
+          "start": start,
+          "end": end,
+          "business_type": businessType,
+          "sort": sort,
+          "s_sort": sSort,
+          "page": page
+        };
+
+        _this9.$post("/apiBusiness.html?f=getTeamList", data).then(function (res) {
+          console.log("getTeamList==>团队排名", res);
+          resolve(res.data);
+        });
+      });
+    },
+    change: function change(e) {
+      console.log(e);
+
+      if (e.range.data.length == 0) {
+        console.log("ssssssss");
+
+        if (e.range.before) {
+          this.customDate.data.start = this.getTimeForm(e.range.before);
+        } else {
+          this.customDate.data.start = "----年--月--日 ---";
+          this.customDate.data.end = "----年--月--日 ---";
+        }
+      } else {
+        this.customDate.dateObj.start = e.range.data[0];
+        this.customDate.dateObj.end = e.range.data[e.range.data.length - 1];
+        this.customDate.data.start = this.getTimeForm(e.range.data[0]);
+        this.customDate.data.end = this.getTimeForm(e.range.data[e.range.data.length - 1]);
+      }
+    },
+    pitch5: function pitch5(id) {
+      var _this10 = this;
+
+      console.log(id);
+      var eventType = '';
+      this.eventType.n = id;
+      this.eventType.list.map(function (item) {
+        if (item.business_key == id) {
+          _this10.eventType.value = item.business_val;
+        }
+      });
+      this.updatePreList();
+      this.offPop5();
+    },
+    pitch6: function pitch6(id) {
+      var _this11 = this;
+
+      console.log(id);
+      this.sort.n = id;
+      this.sort.list.map(function (item) {
+        if (item.id == id) {
+          console.log(item.name);
+          _this11.sort.value = item.name;
+        }
+      });
+      this.updatePreList();
+      this.offPop6();
+    },
+    showPop5: function showPop5(id) {
+      var _this12 = this;
+
+      this.eventType.old = id;
+      console.log(this.eventType.n);
+      console.log(this.eventType.value);
+      setTimeout(function () {
+        _this12.eventType.dom = true;
+        _this12.eventType.shade = true;
+      }, 100);
+    },
+    showPop6: function showPop6(id) {
+      var _this13 = this;
+
+      this.sort.old = id;
+      console.log(this.sort.n);
+      console.log(this.sort.value);
+      setTimeout(function () {
+        _this13.sort.dom = true;
+        _this13.sort.shade = true;
+      }, 100);
+    },
+    showPop3: function showPop3(id) {
+      var _this14 = this;
+
+      setTimeout(function () {
+        _this14.customDate.dom = true;
+        _this14.customDate.shade = true;
+      }, 100);
+    },
+    offPop5: function offPop5() {
+      var _this15 = this;
+
+      setTimeout(function () {
+        _this15.eventType.shade = false;
+        setTimeout(function () {
+          _this15.eventType.dom = false;
+        }, 200);
+      }, 100);
+    },
+    offPop6: function offPop6() {
+      var _this16 = this;
+
+      setTimeout(function () {
+        _this16.sort.shade = false;
+        setTimeout(function () {
+          _this16.sort.dom = false;
+        }, 200);
+      }, 100);
+    },
+    offPop3: function offPop3() {
+      var _this17 = this;
+
+      setTimeout(function () {
+        _this17.customDate.shade = false;
+        setTimeout(function () {
+          _this17.customDate.dom = false;
+        }, 200);
+      }, 100);
+    },
+    getTimeForm: function getTimeForm(str) {
+      var t1 = new Date(str);
+      console.log("t1", t1);
+      var day = "";
+
+      switch (t1.getDay()) {
+        case 0:
+          day = "星期天";
+          break;
+
+        case 1:
+          day = "星期一";
+          break;
+
+        case 2:
+          day = "星期二";
+          break;
+
+        case 3:
+          day = "星期三";
+          break;
+
+        case 4:
+          day = "星期四";
+          break;
+
+        case 5:
+          day = "星期五";
+          break;
+
+        case 6:
+          day = "星期六";
+      }
+
+      return (0, _moment.default)(t1).format("YYYY") + "年" + (0, _moment.default)(t1).format("MM") + "月" + (0, _moment.default)(t1).format("DD") + "日 " + day;
+    },
+    confirmTime: function confirmTime() {
+      console.log("confirmTime");
+      console.log(this.customDate.dateObj.start);
+      console.log(this.customDate.dateObj.end);
+      var t1 = new Date(this.customDate.dateObj.start);
+      var t2 = new Date(this.customDate.dateObj.end);
+      var days = t2.getTime() - t1.getTime();
+      days = Math.floor(days / (24 * 3600 * 1000));
+
+      if (this.customDate.data.start == "----年--月--日 ---") {
+        uni.showToast({
+          title: "请选择开始时间",
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      } else if (this.customDate.data.end == "----年--月--日 ---") {
+        uni.showToast({
+          title: "请选择结束时间",
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      }
+
+      console.log("days", days); // if(days>30){
+      //     uni.showToast({
+      //         title: "时间范围不能超出一个月",
+      //         icon:'none',
+      //         duration: 2000
+      //     });
+      // }else{
+
+      this.customDate.value.start = (0, _moment.default)(this.customDate.dateObj.start).format('YYYY.MM.DD');
+      this.customDate.value.end = (0, _moment.default)(this.customDate.dateObj.end).format('YYYY.MM.DD');
+      this.offPop3();
+      this.updatePreList(); // }
+    },
+    getScrollBottom: function getScrollBottom(e) {
+      var _this18 = this;
+
+      console.log(e); // 业务类型
+
+      var eventType = '';
+
+      if (this.eventType.n != "全部业务") {
+        eventType = this.eventType.n;
+      }
+
+      var sort = '';
+      var sSort = '';
+
+      if (this.sort.n == 1) {
+        sort = "asc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 2) {
+        sort = "desc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 3) {
+        sort = "asc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 4) {
+        sort = "desc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 5) {
+        sort = "asc";
+        sSort = "profit";
+      }
+
+      if (this.sort.n == 6) {
+        sort = "desc";
+        sSort = "profit";
+      }
+
+      if (e.detail.direction == "bottom") {
+        if (this.page < this.totalPage) {
+          this.load = true;
+          this.page = this.page + 1;
+          this.getPreList(this.customDate.dateObj.start, this.customDate.dateObj.end, eventType, sort, sSort, this.page).then(function (res) {
+            console.log("滚动添加", res);
+            _this18.list = _this18.list.concat(res.list);
+          });
+        } else {
+          this.load = false;
+        }
+      }
+    },
+    getScrollBottom2: function getScrollBottom2(e) {
+      var _this19 = this;
+
+      console.log(e); // 业务类型
+
+      var eventType = '';
+
+      if (this.eventType.n != "全部业务") {
+        eventType = this.eventType.n;
+      }
+
+      var sort = '';
+      var sSort = '';
+
+      if (this.sort.n == 1) {
+        sort = "asc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 2) {
+        sort = "desc";
+        sSort = "revenue";
+      }
+
+      if (this.sort.n == 3) {
+        sort = "asc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 4) {
+        sort = "desc";
+        sSort = "cost";
+      }
+
+      if (this.sort.n == 5) {
+        sort = "asc";
+        sSort = "profit";
+      }
+
+      if (this.sort.n == 6) {
+        sort = "desc";
+        sSort = "profit";
+      }
+
+      if (e.detail.direction == "bottom") {
+        if (this.page2 < this.totalPage2) {
+          this.load2 = true;
+          this.page2 = this.page2 + 1;
+          this.getTeamList(this.customDate.dateObj.start, this.customDate.dateObj.end, eventType, sort, sSort, this.page2).then(function (res) {
+            console.log("滚动添加", res);
+            _this19.list2 = _this19.list2.concat(res.list);
+          });
+        } else {
+          this.load2 = false;
+        }
+      }
+    },
+    cutTab: function cutTab(id) {
+      this.dataType = id;
+    },
+    getScroll: function getScroll(e) {
+      console.log(e);
+
+      if (e.detail.scrollTop > 100) {
+        this.toTop = true;
+      } else {
+        this.toTop = false;
+      }
+    },
+    getTop: function getTop() {
+      console.log("回到顶部"); // this.scrollTop=this.YYTop/this.slideYYRatio
+
+      if (this.scrollTop == 0) {
+        this.scrollTop = 0.1;
+      } else {
+        this.scrollTop = 0;
+      }
+
+      console.log("距离", this.scrollTop);
+    },
+    goDetails: function goDetails(name) {
+      uni.navigateTo({
+        url: "/pagesA/details/details?name=" + name
+      });
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 321:
+/*!**************************************************************************!*\
+  !*** ./src/pagesA/preList/preList.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!../../../node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!../../../node_modules/postcss-loader/src??ref--8-oneOf-1-3!../../../node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./preList.vue?vue&type=style&index=0&lang=scss& */ 322);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_preList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 322:
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/pagesA/preList/preList.vue?vue&type=style&index=0&lang=scss& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ })
+
+},[[315,"common/runtime","common/vendor"]]]);
+//# sourceMappingURL=../../../.sourcemap/mp-weixin/pagesA/preList/preList.js.map

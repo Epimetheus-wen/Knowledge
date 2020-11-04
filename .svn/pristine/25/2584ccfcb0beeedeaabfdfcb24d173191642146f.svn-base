@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "分类检索",
+  "usingComponents": {
+    "nav-tab": "/components/navTab",
+    "headertop": "/components/headertop",
+    "classify-catalog": "/pages/classify/classifyCatalog",
+    "classify-group": "/pages/classify/classifyGroup"
+  }
+}

@@ -1,0 +1,1763 @@
+<template>
+    <view class="preList">
+        <Headertop v-if="!isRotating" :titleTop="titleTop"></Headertop>
+        <HeaderLandscape v-else :titleTop="titleTop"></HeaderLandscape>
+        <view class="preList_main">
+            <!-- 标题 -->
+            <view class="preList_title">
+                <view class="title">商务排行榜</view>
+                <view class="txt">(每晚24点更新数据)</view>
+            </view>
+            <view class="huitiao"></view>
+            <view class="preList_main_top">
+                <view @tap="cutTab(1)" :class="dataType==1?'top_title top_title_action':'top_title'" :style="Permission!=4?'color: #949494;border-bottom: 2rpx solid #E9E9E9;':''">个人排名</view>
+                <view v-if="Permission==4" @tap="cutTab(2)" :class="dataType==2?'top_title top_title_action':'top_title'">团队排名</view>
+            </view>
+            <view class="preList_Table">
+                <view v-if="!isRotating">
+                    <view class="preList_Table_time">
+                        <view @tap="showPop3()" class="Table_time">
+                            <view class="time">{{customDate.value.start}} 到 {{customDate.value.end}}</view>
+                            <image class="img" src="../static/images/riqi.png"></image>
+                        </view>
+                        <view @tap="showPop5(eventType.n)" class="title_item title_item2">{{eventType.value}}
+                            <image v-if="!eventType.dom" class="img" src="../static/images/show.png"></image>
+                            <image v-else class="img" src="../static/images/show_no.png"></image>
+                        </view>
+                        <view @tap="showPop6(sort.n)" class="title_item title_item2">{{sort.value}}
+                            <image v-if="sort.n==1||sort.n==3||sort.n==5" class="img1" src="../static/images/sheng.png"></image>
+                            <image v-if="sort.n==2||sort.n==4||sort.n==6" class="img1" src="../static/images/dao.png"></image>
+                        </view>
+                    </view>
+                    <view @tap="offPop3" catchtouchmove='ture' :style="customDate.dom?'display:block;top: calc('+((staHeight*2)+80)+'rpx);':'display:none;top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                    </view> 
+                    <view :style="customDate.dom?'display:block':'display:none'" :class="customDate.shade?'popup_content popup_content3 popup_content_show3':'popup_content popup_content3 popup_content_no3'">
+                        <view class="top">
+                            <view class="title">日期选择</view>
+                            <view @tap="offPop3" class="off_icon">
+                                <image class="img" src="../../static/dataModule/icon_clone.png"></image>
+                            </view>
+                        </view>
+                        <view class="main">
+                            <uni-calendar
+                            :range="true"
+                            :insert="true"
+                            :lunar="false"
+                            :showMonth="false"
+                            :start-date="customDate.startDate"
+                            :end-date="customDate.endDate"
+                            :date="customDate.dufData"
+                            @change="change"
+                            />
+                            <view class="cal_data">
+                                <view class="time_txt">
+                                    <view class="m1">
+                                        <view class="title">开始：</view>
+                                        <view class="t1">{{customDate.data.start}}</view>
+                                    </view>
+                                    <view class="m1">
+                                        <view class="title">结束：</view>
+                                        <view class="t1">{{customDate.data.end}}</view>
+                                    </view>
+                                </view>
+                                <button class="time" @tap="confirmTime">确定</button>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+                <view v-else>
+                    <view class="preList_Table_time">
+                        <view @tap="showPop3()" class="Table_time">
+                            <view class="time">{{customDate.value.start}} 到 {{customDate.value.end}}</view>
+                            <image class="img" src="../static/images/riqi.png"></image>
+                        </view>
+                        <view class="tishi">(每晚24点更新数据)</view>
+                    </view>
+                    <view @tap="offPop3" catchtouchmove='ture' :style="customDate.dom?'display:block':'display:none'"  class="shade_popup_h show_popup">
+                    </view>
+                    <view :style="customDate.dom?'display:block':'display:none'" :class="customDate.shade?'h_pop popup_content_show20':'h_pop popup_content_no21'">
+                        <view class="top">
+                            <view class="title">日期选择</view>
+                            <view @tap="offPop3" class="off_icon">
+                                <image class="img" src="../../static/dataModule/icon_clone.png"></image>
+                            </view>
+                        </view>
+                        <view class="main">
+                            <uni-calendar
+                            class="main_calendar"
+                            :range="true"
+                            :insert="true"
+                            :lunar="false"
+                            :showMonth="false"
+                            :start-date="customDate.startDate"
+                            :end-date="customDate.endDate"
+                            :date="customDate.dufData"
+                            @change="change"
+                            />
+                            <view class="cal_data_h">
+                                <view class="time_txt">
+                                    <view class="m1">
+                                        <view class="title">开始：</view>
+                                        <view class="t1">{{customDate.data.start}}</view>
+                                    </view>
+                                    <view class="m1">
+                                        <view class="title">结束：</view>
+                                        <view class="t1">{{customDate.data.end}}</view>
+                                    </view>
+                                </view>
+                                <button class="time" @tap="confirmTime">确定</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view v-if="dataType==1" class="preList_Table_list">
+                    <scroll-view :scroll-with-animation="true" :scroll-anchoring="true" @scroll="getScroll" @scrolltolower="getScrollBottom" :scroll-top="scrollTop" :scroll-left="scrollLeft" :scroll-y="true" :scroll-x="true" :style="'max-height:'+(slideYY-30-80)+'rpx'" class="right">
+                        <view class="right_h right_h1">
+                            <view class="title" style="position: sticky;top:0;z-index:1;">
+                                <view  class="title_item_left" style="position: sticky;left:0;top:0;z-index:1;">
+                                    <text class="txt1">序号</text>
+                                    <text class="txt2">员工姓名</text>
+                                </view>
+                                <view class="title_item title_item2">
+                                    客户数量
+                                </view>
+                                <view class="title_item title_item2">营收（万）</view>
+                                <view class="title_item title_item2">成本（万）</view>
+                                <view class="title_item title_item2">毛利（万）</view>
+                                <view class="title_item title_item1">毛利率</view>
+                            </view>
+                            <view class="list" v-for="(item,index) in list" :key="index">
+                                <view class="title_item_left1" style="position: sticky;left:0">
+                                    <view class="txt1">{{item.id}}</view>
+                                    <view class="txt2" @tap="goDetails(item.sale_name)">{{item.sale_name}}</view>
+                                </view>
+                                <view class="title_item title_item2">{{item.cust_num}}
+                                </view>
+                                <view class="title_item title_item2">{{item.revenue}}</view>
+                                <view class="title_item title_item2">{{item.cost}}</view>
+                                <view class="title_item title_item2">{{item.profit}}</view>
+                                <view class="title_item title_item1">{{item.rate}}</view>
+                            </view>
+                            <view class="list_footer" style="position: sticky;left:0;">
+                                <view v-if="load" class="load_footer">
+                                    <view class="txt">
+                                        <uni-icons class="load_icon" type="spinner-cycle" size="30"></uni-icons>
+                                        <text>正在加载中......</text>
+                                    </view>
+                                </view>
+                                <image v-if="!load" class="img" src='../static/images/footer.png'></image>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+                <view v-if="dataType==2" class="preList_Table_list">
+                    <scroll-view :scroll-anchoring="true" @scrolltolower="getScrollBottom2" :scroll-top="scrollTop2" :scroll-left="scrollLeft2" :scroll-y="true" :scroll-x="true" :style="'max-height:'+(slideYY-30-80)+'rpx'" class="right">
+                        <view class="right_h right_h2">
+                            <view class="title" style="position: sticky;top:0;z-index:1;">
+                                <view  class="title_item_left" style="position: sticky;left:0;top:0;z-index:1;">
+                                    <text class="txt1">序号</text>
+                                    <text class="txt2">二级部门</text>
+                                </view>
+                                <view class="title_item title_item2">组长</view>
+                                <view class="title_item title_item2">客户数量</view>
+                                <view class="title_item title_item2">营收（万）</view>
+                                <view class="title_item title_item2">成本（万）</view>
+                                <view class="title_item title_item2">毛利（万）</view>
+                                <view class="title_item title_item1">毛利率</view>
+                            </view>
+                            <view class="list" v-for="(item,index) in list2" :key="index">
+                                <view class="title_item_left1" style="position: sticky;left:0">
+                                    <view class="txt1">{{item.id}}</view>
+                                    <view class="txt2">{{item.dep_name}}</view>
+                                </view>
+                                <view class="title_item title_item2">{{item.leader_name}}
+                                </view>
+                                <view class="title_item title_item2">{{item.num}}
+                                </view>
+                                <view class="title_item title_item2">{{item.revenue}}</view>
+                                <view class="title_item title_item2">{{item.cost}}</view>
+                                <view class="title_item title_item2">{{item.profit}}</view>
+                                <view class="title_item title_item1">{{item.rate}}</view>
+                            </view>
+                            <view class="list_footer" style="position: sticky;left:0;">
+                                <view v-if="load2" class="load_footer">
+                                    <view class="txt">
+                                        <uni-icons class="load_icon" type="spinner-cycle" size="30"></uni-icons>
+                                        <text>正在加载中......</text>
+                                    </view>
+                                </view>
+                                <image v-if="!load2" class="img" src='../static/images/footer.png'></image>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+                
+                <view v-if="eventType.dom" @tap="offPop5" catchtouchmove='ture' :style="'top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                </view>
+                <view v-if="eventType.dom" :class="eventType.shade?'popup_content popup_content_show':'popup_content popup_content_no'">
+                    <view class="main" style="border-radius: 20rpx 20rpx 0 0;">
+                        <view @tap="pitch5(item.business_key)" v-for="(item,index) in eventType.list" :key="index" :class="eventType.n==item.business_key?'list1 list_action':'list1'">{{item.business_val}}</view>
+                    </view>
+                </view>
+                <view v-if="sort.dom" @tap="offPop6" catchtouchmove='ture' :style="'top: calc('+((staHeight*2)+80)+'rpx);'" class="shade_popup show_popup">
+                </view>
+                <view v-if="sort.dom" :class="sort.shade?'popup_content popup_content_show':'popup_content popup_content_no'">
+                    <view class="main main1" style="border-radius: 20rpx 20rpx 0 0;">
+                        <view @tap="pitch6(item.id)" v-for="(item,index) in sort.list" :key="index" :class="sort.n==item.id?'list2 list_action':'list2'">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+            <button v-if="toTop" @tap="getTop" class="getTop" hover-class="getTop_hover">
+                <image class="img" src="../static/images/top.png" ></image>
+            </button>
+        </view>
+    </view>
+</template>
+
+<script>
+    import Headertop from "../../components/headertop.vue";
+    import HeaderLandscape from "../components/headerLandscape.vue";
+    import uniCalendar from '@/components/uni-calendar/uni-calendar.vue'
+    import uniIcons from "@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue"
+    import moment from "moment";
+    
+    export default {
+        data() {
+            return {
+                titleTop:"商务排名",
+                isRotating:false,
+                staHeight:"",
+                dataType:1,
+                rpx:1,
+                customDate:{//日期
+                    shade:false,
+                    dom:false,
+                    startDate:"2010-01-01",
+                    endDate:"",
+                    data:{
+                        start:"----年--月--日 ---",
+                        end:"----年--月--日 ---"
+                    },
+                    dateObj:{
+                        start:"",
+                        end:""
+                    },
+                    dufData:"",
+                    value:{
+                        start:"",
+                        end:""
+                    }
+                },
+                sort:{//类型
+                    shade:false,
+                    dom:false,
+                    value:"按营收倒序",
+                    n:"2",
+                    old:"按营收倒序",
+                    list:[{
+                        "name": "按营收升序",
+                        "id": "1"
+                    },
+                    {
+                        "name": "按营收倒序",
+                        "id": "2"
+                    },
+                    {
+                        "name": "按成本升序",
+                        "id": "3"
+                    },
+                    {
+                        "name": "按成本倒序",
+                        "id": "4"
+                    },
+                    {
+                        "name": "按毛利升序",
+                        "id": "5"
+                    },
+                    {
+                        "name": "按毛利倒序",
+                        "id": "6"
+                    }]
+                },
+                eventType:{//类型
+                    shade:false,
+                    dom:false,
+                    value:"全部业务",
+                    n:"全部业务",
+                    old:"全部业务",
+                    list:[{
+                        "business_key": "全部业务",
+                        "business_val": "全部业务"
+                    }]
+                },
+                slideRatio:'',
+                scrollLeft:'',
+                HHLeft:'',
+                firstX:'',
+                scrollTop:'',
+                list:[],
+                totalPage:0,
+                page:1,
+                load:true,
+                scrollLeft2:'',
+                scrollTop2:'',
+                list2:[],
+                totalPage2:0,
+                page2:1,
+                load2:true,
+                windowHeight:'',//屏幕高度
+                slideYY:'',//显示区域高度
+                slideYYRatio:'',
+                slideYYHeight:'',
+                YYTop:'',
+                scrollActionY:false,
+                toTop:false,
+                Permission:''
+            }
+        },
+        components: {
+            Headertop,
+            uniCalendar,
+            HeaderLandscape,
+            uniIcons
+        },
+        onLoad: function(option) {
+
+            console.log(option)
+
+		},
+        onShow(){
+            console.log("状态栏高度");
+			let that = this;
+			wx.getSystemInfo({
+				success: e => {
+                    console.log("设备版本信息",e)
+					console.log("状态栏高度", e.statusBarHeight);
+					that.staHeight = e.statusBarHeight;
+                    that.rpx = e.windowWidth / 750;
+                    that.windowHeight=e.windowHeight
+                    that.slideYY=((that.windowHeight-that.staHeight)/that.rpx)-326
+				}
+            });
+            // 获取权限标识
+            this.getDataAuth()
+            .then((res)=>{
+                console.log(res)
+                this.Permission=4
+            })
+
+            wx.onWindowResize(function(res) {
+                console.log("切换",res)
+                if (res.deviceOrientation === 'landscape') {
+                    that.isRotating = true;
+                    that.windowHeight=res.size.windowHeight
+                } else {
+                    that.isRotating = false;
+                    that.windowHeight=res.size.windowHeight
+                }
+            })
+
+
+
+            // // // 列表总宽度
+            var totalLength = 1286;
+            // 显示区域宽度
+            var slideLength = 468;
+            // 比例
+            var slideRatio = slideLength/totalLength;
+            this.slideRatio=slideRatio
+
+        },
+        onReady(){
+            let nowDate = new Date();
+            let endTime=nowDate.getTime() - 24 * 60 * 60 * 1000
+            let startTime=nowDate.getTime() -7 * 24 * 60 * 60 * 1000
+            this.customDate.value.start=moment(startTime).format('YYYY.MM.DD')
+            this.customDate.value.end=moment(endTime).format('YYYY.MM.DD')
+            this.customDate.dateObj.start=moment(startTime).format('YYYY-MM-DD')
+            this.customDate.dateObj.end=moment(endTime).format('YYYY-MM-DD')
+
+            this.getPreList(moment(startTime).format('YYYY-MM-DD'),moment(endTime).format('YYYY-MM-DD'),"","","",1)
+            .then((res)=>{
+                console.log("初始化列表",res)
+                this.list=res.list
+                this.totalPage=res.totalPage
+                if(this.totalPage <= 1){
+                    this.load=false
+                }else{
+                    this.load=true
+                    this.getPreList2()
+                }
+            })
+            this.getTeamList(moment(startTime).format('YYYY-MM-DD'),moment(endTime).format('YYYY-MM-DD'),"","","",1)
+            .then((res)=>{
+                console.log("初始化列表",res)
+                this.list2=res.list
+                this.totalPage2=res.totalPage
+                if(this.totalPage2 <= 1){
+                    this.load2=false
+                }else{
+                    this.load2=true
+                    this.getTeamList()
+                }
+            })
+            this.getEventType()
+            
+        },
+        methods: {
+            getDataAuth() {
+                return new Promise((resolve, reject) => {
+                    this.$post("/apiBusiness.html?f=getDataAuth")
+                        .then((res) => {
+                            console.log("getDataAuth==>获取数据权限", res)
+                            resolve(res.data);
+                        })
+                })
+            },
+            getEventType(){//获取业务线
+                this.$post("/apiBusiness.html?f=getEventType")
+                    .then((res) => {
+                        console.log("getEventType==>获取业务线", res)
+                        this.eventType.list=this.eventType.list.concat(res.data)
+                    })
+            },
+            getPreList2(){
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                let sort=''
+                let sSort=''
+                if(this.sort.n==1){
+                    sort="asc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==2){
+                    sort="desc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==3){
+                    sort="asc"
+                    sSort="cost"
+                }
+                if(this.sort.n==4){
+                    sort="desc"
+                    sSort="cost"
+                }
+                if(this.sort.n==5){
+                    sort="asc"
+                    sSort="profit"
+                }
+                if(this.sort.n==6){
+                    sort="desc"
+                    sSort="profit"
+                }
+                this.load=true
+                this.page=this.page+1
+                this.getPreList(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sort,sSort,this.page)
+                .then((res)=>{
+                    console.log("滚动添加",res)
+                    this.list=this.list.concat(res.list)
+                })
+            },
+            getTeamList2(){
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                let sort=''
+                let sSort=''
+                if(this.sort.n==1){
+                    sort="asc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==2){
+                    sort="desc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==3){
+                    sort="asc"
+                    sSort="cost"
+                }
+                if(this.sort.n==4){
+                    sort="desc"
+                    sSort="cost"
+                }
+                if(this.sort.n==5){
+                    sort="asc"
+                    sSort="profit"
+                }
+                if(this.sort.n==6){
+                    sort="desc"
+                    sSort="profit"
+                }
+                this.load2=true
+                this.page2=this.page2+1
+                this.getTeamList(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sort,sSort,this.page2)
+                .then((res)=>{
+                    console.log("滚动添加",res)
+                    this.list2=this.list2.concat(res.list)
+                })
+            },
+            updatePreList(){
+
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                let sort=''
+                let sSort=''
+                if(this.sort.n==1){
+                    sort="asc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==2){
+                    sort="desc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==3){
+                    sort="asc"
+                    sSort="cost"
+                }
+                if(this.sort.n==4){
+                    sort="desc"
+                    sSort="cost"
+                }
+                if(this.sort.n==5){
+                    sort="asc"
+                    sSort="profit"
+                }
+                if(this.sort.n==6){
+                    sort="desc"
+                    sSort="profit"
+                }
+                this.list=[]
+                this.list2=[]
+                this.getPreList(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sort,sSort,1)
+                .then((res)=>{
+                    console.log("初始化列表",res)
+                    this.list=res.list
+                    this.page=1
+                    this.totalPage=res.totalPage
+                    if(this.totalPage <= 1){
+                        this.load=false
+                    }else{
+                        this.load=true
+                        this.getPreList2()
+                    }
+                })
+
+                this.getTeamList(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sort,sSort,1)
+                .then((res)=>{
+                    console.log("初始化列表",res)
+                    this.list2=res.list
+                    this.page2=1
+                    this.totalPage2=res.totalPage
+                    if(this.totalPage2 <= 1){
+                        this.load2=false
+                    }else{
+                        this.load2=true
+                        this.getTeamList2()
+                    }
+                })
+            },
+            getPreList(start,end,businessType,sort,sSort,page) {//员工排名
+                return new Promise((resolve, reject) => {
+                    let data={
+                        "start":start,
+                        "end":end,
+                        "business_type":businessType,
+                        "sort":sort,
+                        "s_sort":sSort,
+                        "page":page
+                    }
+                    this.$post("/apiBusiness.html?f=getPreList",data)
+                        .then((res) => {
+                            console.log("getPreList==>员工排名", res)
+                            resolve(res.data);
+                        })
+                })
+            },
+            getTeamList(start,end,businessType,sort,sSort,page) {//员工排名
+                return new Promise((resolve, reject) => {
+                    let data={
+                        "start":start,
+                        "end":end,
+                        "business_type":businessType,
+                        "sort":sort,
+                        "s_sort":sSort,
+                        "page":page
+                    }
+                    this.$post("/apiBusiness.html?f=getTeamList",data)
+                        .then((res) => {
+                            console.log("getTeamList==>团队排名", res)
+                            resolve(res.data);
+                        })
+                })
+            },
+            change(e) {
+                console.log(e);
+                if(e.range.data.length==0){
+                    console.log("ssssssss")
+                    if(e.range.before){
+                        this.customDate.data.start=this.getTimeForm(e.range.before)
+                    }else{
+                        this.customDate.data.start="----年--月--日 ---"
+                        this.customDate.data.end="----年--月--日 ---"
+                    }
+                }else{
+                    this.customDate.dateObj.start=e.range.data[0]
+                    this.customDate.dateObj.end=e.range.data[e.range.data.length-1]
+                    this.customDate.data.start=this.getTimeForm(e.range.data[0])
+                    this.customDate.data.end=this.getTimeForm(e.range.data[e.range.data.length-1])
+                }
+            },
+            pitch5(id){
+                console.log(id)
+                let eventType=''
+
+                this.eventType.n=id
+                
+                this.eventType.list.map((item)=>{
+                    if(item.business_key==id){
+                        this.eventType.value=item.business_val
+                    }
+                })
+                this.updatePreList()
+            
+                this.offPop5()
+            },
+            pitch6(id){
+                console.log(id)
+                this.sort.n=id
+
+                this.sort.list.map((item)=>{
+                    if(item.id==id){
+                        console.log(item.name)
+                        this.sort.value=item.name
+                    }
+                })
+                this.updatePreList()
+            
+                this.offPop6()
+            },
+            showPop5(id){
+                this.eventType.old=id
+                console.log(this.eventType.n)
+                console.log(this.eventType.value)
+                setTimeout(() => {
+                    this.eventType.dom = true
+                    this.eventType.shade = true
+				}, 100)
+            },
+            showPop6(id){
+                this.sort.old=id
+                console.log(this.sort.n)
+                console.log(this.sort.value)
+                setTimeout(() => {
+                    this.sort.dom = true
+                    this.sort.shade = true
+				}, 100)
+            },
+            showPop3(id){
+                setTimeout(() => {
+                    this.customDate.dom = true
+                    this.customDate.shade = true
+				}, 100)
+            },
+            offPop5(){
+                setTimeout(() => {
+					this.eventType.shade = false		
+                    setTimeout(() => {
+                        this.eventType.dom = false
+                    }, 200)
+				}, 100)
+            },
+            offPop6(){
+                setTimeout(() => {
+					this.sort.shade = false		
+                    setTimeout(() => {
+                        this.sort.dom = false
+                    }, 200)
+				}, 100)
+            },
+            offPop3(){
+                setTimeout(() => {
+					this.customDate.shade = false		
+                    setTimeout(() => {
+                        this.customDate.dom = false
+                    }, 200)
+				}, 100)
+            },
+
+            getTimeForm(str){
+                let t1= new Date(str)
+                console.log("t1",t1)
+                let day=""
+                switch (t1.getDay()) {
+                    case 0:
+                        day = "星期天";
+                        break;
+                    case 1:
+                        day = "星期一";
+                        break;
+                    case 2:
+                        day = "星期二";
+                        break;
+                    case 3:
+                        day = "星期三";
+                        break;
+                    case 4:
+                        day = "星期四";
+                        break;
+                    case 5:
+                        day = "星期五";
+                        break;
+                    case 6:
+                        day = "星期六";
+                }
+               return moment(t1).format("YYYY")+"年"+ moment(t1).format("MM")+"月"+ moment(t1).format("DD")+"日 "+day;
+            },
+            confirmTime(){
+                console.log("confirmTime")
+                console.log(this.customDate.dateObj.start)
+                console.log(this.customDate.dateObj.end)
+                let t1=new Date(this.customDate.dateObj.start)
+                let t2=new Date(this.customDate.dateObj.end)
+                let days=t2.getTime() - t1.getTime()
+                days= Math.floor(days / (24 * 3600 * 1000))
+                if(this.customDate.data.start=="----年--月--日 ---"){
+                    uni.showToast({
+                        title: "请选择开始时间",
+                        icon:'none',
+                        duration: 2000
+                    });
+                    return
+                }else if(this.customDate.data.end=="----年--月--日 ---"){
+                    uni.showToast({
+                        title: "请选择结束时间",
+                        icon:'none',
+                        duration: 2000
+                    });
+                    return
+                }
+                console.log("days",days)
+                // if(days>30){
+                //     uni.showToast({
+                //         title: "时间范围不能超出一个月",
+                //         icon:'none',
+                //         duration: 2000
+                //     });
+                // }else{
+                    this.customDate.value.start=moment(this.customDate.dateObj.start).format('YYYY.MM.DD')
+                    this.customDate.value.end=moment(this.customDate.dateObj.end).format('YYYY.MM.DD')
+                    this.offPop3()
+                    this.updatePreList()
+                // }
+                
+            },
+            getScrollBottom(e){
+                console.log(e)
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                let sort=''
+                let sSort=''
+                if(this.sort.n==1){
+                    sort="asc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==2){
+                    sort="desc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==3){
+                    sort="asc"
+                    sSort="cost"
+                }
+                if(this.sort.n==4){
+                    sort="desc"
+                    sSort="cost"
+                }
+                if(this.sort.n==5){
+                    sort="asc"
+                    sSort="profit"
+                }
+                if(this.sort.n==6){
+                    sort="desc"
+                    sSort="profit"
+                }
+                if(e.detail.direction=="bottom"){
+                    if(this.page<this.totalPage){
+                        this.load=true
+                        this.page=this.page+1
+                        this.getPreList(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sort,sSort,this.page)
+                        .then((res)=>{
+                            console.log("滚动添加",res)
+                            this.list=this.list.concat(res.list)
+                        })
+                    }else{
+                        this.load=false
+                    }
+                }
+            },
+            getScrollBottom2(e){
+                console.log(e)
+                // 业务类型
+                let eventType=''
+                if(this.eventType.n!="全部业务"){
+                    eventType=this.eventType.n
+                }
+                let sort=''
+                let sSort=''
+                if(this.sort.n==1){
+                    sort="asc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==2){
+                    sort="desc"
+                    sSort="revenue"
+                }
+                if(this.sort.n==3){
+                    sort="asc"
+                    sSort="cost"
+                }
+                if(this.sort.n==4){
+                    sort="desc"
+                    sSort="cost"
+                }
+                if(this.sort.n==5){
+                    sort="asc"
+                    sSort="profit"
+                }
+                if(this.sort.n==6){
+                    sort="desc"
+                    sSort="profit"
+                }
+                if(e.detail.direction=="bottom"){
+                    if(this.page2<this.totalPage2){
+                        this.load2=true
+                        this.page2=this.page2+1
+                        this.getTeamList(this.customDate.dateObj.start,this.customDate.dateObj.end,eventType,sort,sSort,this.page2)
+                        .then((res)=>{
+                            console.log("滚动添加",res)
+                            this.list2=this.list2.concat(res.list)
+                        })
+                    }else{
+                        this.load2=false
+                    }
+                }
+            },
+            cutTab(id){
+                this.dataType=id
+            },
+            getScroll(e) {
+                console.log(e)
+
+                if(e.detail.scrollTop>100){
+                    this.toTop=true
+                }else{
+                    this.toTop=false
+                }
+            },
+            getTop(){
+                console.log("回到顶部")
+                // this.scrollTop=this.YYTop/this.slideYYRatio
+                if(this.scrollTop==0){
+                    this.scrollTop=0.1
+                }else{
+                    this.scrollTop=0
+                }
+                console.log("距离",this.scrollTop)
+            },
+            goDetails(name){
+                uni.navigateTo({
+                    url: "/pagesA/details/details?name="+name,
+                })
+            },
+        },
+    }
+</script>
+
+<style lang='scss' >
+    //css函数
+@function tovmin($rpx){//$rpx为需要转换的字号
+    @return #{$rpx * 100 / 750}vmin; 
+}
+
+    .huitiao{
+        height: tovmin(20);
+        background: #EFEFF3;
+    }
+
+    .preList{
+        .preList_main{
+            // 标题
+            .preList_title{
+                height:tovmin(160);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: tovmin(32);
+                box-shadow:0px 0px tovmin(9) 0px rgba(213,213,213,0.4);
+                .title{
+                    font-size: tovmin(32);
+                    line-height: tovmin(32);
+                    margin-bottom: tovmin(13);
+                    color: #232323;
+                }
+                .txt{
+                    font-size: tovmin(20);
+                    line-height: tovmin(20);
+                    color: #959595;
+                }
+            }
+            .preList_main_top{
+                height: 79rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #fff;
+                .top_title{
+                    width: 100%;
+                    color: #949494;
+                    font-size:26rpx;
+                    text-align: center;
+                    line-height: 79rpx;
+                    border-bottom: 2rpx solid #E9E9E9;
+                }
+                .top_title_action{
+                    color: #2F7AF5;
+                    border-bottom: 2rpx solid #2F7AF5;
+                }
+            }
+
+
+
+            // 表格
+            .preList_Table{
+                position: relative;
+                border-radius:tovmin(6);
+                // box-shadow:0 0 tovmin(9) 0 rgba(213,213,213,0.4);
+                .preList_Table_time{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: tovmin(20) tovmin(32);
+                    .Table_time{
+                        display: flex;
+                        align-items: center;
+                        height: tovmin(26);
+                        .time{
+                            font-size: tovmin(24);
+                            line-height: tovmin(24);
+                            color: #797979;
+                            margin-right: tovmin(14);
+                        }
+                        .img{
+                            width: tovmin(30);
+                            height: tovmin(26);
+                            display: block;
+                        }
+                    }
+                    .tishi{
+                        font-size: tovmin(20);
+                        line-height: tovmin(20);
+                        color: #959595;
+                    }
+                    .title_item{
+                        font-size: tovmin(24);
+                        line-height: tovmin(24);
+                        color: #797979;
+                        display: flex;
+                        align-items: center;
+                        .img{
+                            width: tovmin(16);
+                            height: tovmin(10);
+                            display: block;
+                            margin-left: tovmin(14);
+                        }
+                        .img1{
+                            width: tovmin(20);
+                            height: tovmin(24);
+                            display: block;
+                            margin-left: tovmin(14);
+                        }
+                        
+                    }
+                }
+                .preList_Table_list{
+                    width: 750rpx;
+                    max-height: calc(100vh - (var(--status-bar-height) + 326rpx));
+                    
+                    .preList_Table_list_main{
+                        display: flex;
+                        width: 750rpx;
+                        
+                    }
+
+
+                    ::-webkit-scrollbar {
+                        height: tovmin(16);
+                        width: tovmin(16);
+                        color:#ffffff;
+                        background: transparent;
+
+                    }
+
+                    /*定义滚动条轨道 内阴影+圆角*/
+                    ::-webkit-scrollbar-track {
+                        // -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+                        // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+                        // border-radius: 10px;
+                        // background-color:transparent;
+                    }
+
+                    /*定义滑块 内阴影+圆角*/
+                    ::-webkit-scrollbar-thumb {
+                        position: absolute;
+                        border-radius: tovmin(10);
+                        -webkit-box-shadow: inset 0 0 tovmin(10) rgba(0, 0, 0, 0.3);
+                        box-shadow: inset 0 0 tovmin(6) rgba(0, 0, 0, 0.1);
+                        background-color:#D5D5D5;
+                    }
+                    
+                    .right{
+                        position: relative;
+                        max-height: calc(100vh - (var(--status-bar-height) + 326rpx));
+
+                        .right_h{
+                            width: tovmin(1550);
+                            .title{  
+                                // position: absolute;
+                                height: tovmin(90);
+                                font-size: tovmin(25);
+                                color: #949494;
+                                display: flex;
+                                align-items: center;
+                                background: #F7F7FD;
+                                .title_item{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding: 0 tovmin(24);
+                                    background: #F7F7FD;
+                                    text-align: center;
+                                    .img{
+                                        margin-left: tovmin(12);
+                                        width: tovmin(16);
+                                        height: tovmin(10);
+                                        display: block;
+                                    }
+                                }
+                                .title_item1{
+                                    width: tovmin(100);
+                                }
+                                .title_item2{
+                                    width: tovmin(150);
+                                }
+                                .title_item_left{
+                                    height: tovmin(90);
+                                    font-size: tovmin(25);
+                                    color: #949494;
+                                    display: flex;
+                                    // justify-content: center;
+                                    align-items: center;
+                                    line-height: tovmin(90);
+                                    padding: 0 tovmin(32);
+                                    width: tovmin(200);
+                                    background: #F7F7FD;
+                                    border-right: tovmin(1) solid #E9E9E9;
+                                    .img{
+                                        margin-left: tovmin(12);
+                                        width: tovmin(16);
+                                        height: tovmin(10);
+                                        display: block;
+                                    }
+                                    .txt{
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+                                .popItem{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    .txt{
+                                        max-width: tovmin(160);
+                                    }
+                                }
+                            }
+                            
+                            .list{ 
+                                height: tovmin(90);
+                                font-size: tovmin(24);
+                                color: #242424;
+                                display: flex;
+                                align-items: center;
+                                background: #fff;
+                                .title_item{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    // padding: 0 tovmin(24);
+                                    background: #fff;
+                                    .img{
+                                        margin-left: tovmin(12);
+                                        width: tovmin(16);
+                                        height: tovmin(10);
+                                        display: block;
+                                    }
+                                }
+                                .title_item1{
+                                    width: tovmin(148);
+                                }
+                                .title_item2{
+                                    width: tovmin(198);
+                                }
+                                .title_item_left1{
+                                    height: tovmin(90);
+                                    font-size: tovmin(24);
+                                    color: #242424;
+                                    display: flex;
+                                    // justify-content: center;
+                                    align-items: center;
+                                    line-height: tovmin(90);
+                                    padding: 0 tovmin(32);
+                                    width: tovmin(200);
+                                    background: #fff;
+                                    border-right: tovmin(1) solid #E9E9E9;
+                                    .txt{
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+
+                            }
+                            .list:nth-child(2n-1){
+                                background: #F7F7FD;
+                                .title_item{
+                                    background: #F7F7FD;
+                                }
+                               .title_item_left1{
+                                    background: #F7F7FD;
+                                }
+                            } 
+                        }
+                        .right_h1{
+                            width: tovmin(1204) !important;
+                            .title{
+                                .title_item_left{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .txt1{
+                                        width: tovmin(60);
+                                        text-align: center;
+                                    }
+                                    .txt2{
+                                        width: tovmin(120);
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                            .list{
+                                .title_item_left1{
+                                    justify-content: space-between;
+                                    .txt1{
+                                        width: tovmin(60);
+                                        text-align: center;
+                                    }
+                                    .txt2{
+                                        width: tovmin(120);
+                                        text-align: center;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        .right_h2{
+                            width: tovmin(1402) !important;
+                            .title{
+                                .title_item_left{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .txt1{
+                                        width: tovmin(60);
+                                        text-align: center;
+                                    }
+                                    .txt2{
+                                        width: tovmin(120);
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                            .list{
+                                .title_item_left1{
+                                    justify-content: space-between;
+                                    // padding-right: tovmin(22);
+                                    .txt1{
+                                        width: tovmin(60);
+                                        text-align: center;
+                                    }
+                                    .txt2{
+                                        width: tovmin(160);
+                                        text-align: center;
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .list_footer{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: tovmin(750);
+                        height: tovmin(126);
+                        .img{
+                            width: tovmin(324);
+                            height: tovmin(28);
+                        }
+                        .load_footer{
+                            height: tovmin(126) !important;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            >.txt{
+                                padding-left:tovmin(45);
+                                position: relative;
+                                font-size: tovmin(26);
+                                color: rgba(0,0,0,0.4);
+                            }
+                            .load_icon{
+                                position: absolute;
+                                left: 0;
+                                top: tovmin(-4);
+                                animation:myfirstIcon 1.5s linear infinite; 
+                                .uni-icons{
+                                    font-size: tovmin(38) !important;
+                                    color: rgba(0,0,0,0.4) !important;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+
+@keyframes myfirstIcon {
+	0% {
+        transform:rotate(0deg);
+    }
+    50% {
+        transform:rotate(180deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+//日历_first
+    .shade_popup {
+        position: fixed;
+        top: calc(var(--status-bar-height) + 80rpx);
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.4);	
+    }
+    .popup_content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        background: #fff;
+        height: 560rpx;
+        z-index: 101;
+        border-radius: 20rpx 20rpx 0 0;
+        // padding-bottom: 60rpx;
+        .top{
+            border-radius: 20rpx 20rpx 0 0;
+            background: #EFEFF4;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 29rpx;
+            height: 110rpx;
+            align-items: center;
+            .off{
+                font-size: 30rpx;
+                color: #999999;
+            }
+            .on{
+                font-size: 30rpx;
+                color: #357DF5; 
+            }
+        }
+        .search_top_center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 60rpx;
+            background: rgba(255, 255, 255, 1);
+            // box-shadow: 0px 2rpx 10rpx 0px rgba(213, 213, 213, 1);
+            border-radius: 6rpx;
+            width: 100%;
+            >.input{
+                width: 100%;
+                height: 100%;
+                padding-left:66rpx;
+                padding-right:54rpx;
+                font-size:26rpx;
+                position: relative;
+                z-index: 1;
+            }
+            .input_s{
+                font-size:26rpx;
+                color: #BBBBBB;
+            }
+            .img {
+                width: 30rpx !important;
+                height: 30rpx !important;
+                display: block;
+                z-index: 2;
+            }
+            >.img1{
+                position: absolute;
+                left: 24rpx;
+                top: 0;
+                bottom: 0;
+                margin: auto 0 !important;
+            }
+            >.img2{
+                position: absolute;
+                padding: 0 24rpx;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+            }
+            
+        }
+        .main{
+            height: 450rpx;
+            overflow: scroll;
+
+            .list1{
+                background: #FFFFFF;
+                font-size: 28rpx;
+                color: rgba(36, 36, 36, 0.8);
+                padding: 0 50rpx 0 50rpx;
+                line-height: 82rpx;
+                height: 82rpx;
+            }
+            .list1:nth-child(1){
+                color: rgba(36, 36, 36, 0.6);
+            }
+            .list2{
+                background: #FFFFFF;
+                font-size: 28rpx;
+                color: rgba(36, 36, 36, 0.8);
+                padding: 0 50rpx 0 50rpx;
+                line-height: 82rpx;
+                height: 82rpx;
+            }
+            .list_action{
+                background: rgba(248, 248, 254, 1);
+                color:rgba(36, 36, 36, 1) !important;
+            }
+        }
+        .main1{
+            height: 500rpx;
+        }
+    }
+    .popup_content_show{
+        bottom: 0;
+        animation: myfirst7 0.2s linear;
+    }
+    .popup_content_no{
+        bottom: -668rpx;
+        animation: myfirst8 0.2s linear;
+    }
+
+    .popup_content2{
+        height: 548rpx;
+    }
+    .popup_content_show2{
+        bottom: 0;
+        animation: myfirst9 0.2s linear;
+    }
+    .popup_content_no2{
+        bottom: -608rpx;
+        animation: myfirst10 0.2s linear;
+    }
+
+    .popup_content3{
+        height: 1036rpx;
+        padding-bottom: 0;
+        .top{
+            justify-content: center;
+            position: relative;
+            .title{
+                font-size: 30rpx;
+                color: #666666;
+            }
+            .off_icon{
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                padding: 0 24rpx;
+                .img{
+                    width: 40rpx;
+                    height: 40rpx;
+                    display: block;
+                }
+            }
+        }
+        .main{
+            height: 100%;
+        }
+    }
+    .popup_content_show3{
+        bottom: 0;
+        animation: myfirst11 0.2s linear;
+    }
+    .popup_content_no3{
+        bottom: -1036rpx;
+        animation: myfirst12 0.2s linear;
+    }
+
+    .cal_data{
+        height: 156rpx;
+        display: flex;
+        background: #F5F8FE;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24rpx;
+        .time_txt{
+            .m1{
+                display: flex;
+                align-items: center;
+                font-size: 28rpx;
+                color: #666666;
+                line-height: 52rpx;
+            }
+        }
+        .time{
+            background: #357DF5;
+            border-radius: 12rpx;
+            width: 200rpx;
+            height: 90rpx;
+            color: #fff;
+            font-size: 40rpx;
+            line-height: 90rpx;
+            margin: 0;
+
+        }
+        .button-hover{
+            background: rgba(106, 156, 243, 0.9);
+        }
+    }
+    @keyframes myfirst7 {
+		0% {
+			bottom: -668rpx;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+    @keyframes myfirst8 {
+		0% {
+			bottom: 0;
+		}
+
+		100% {
+			bottom: -668rpx;
+		}
+	}
+    @keyframes myfirst9 {
+		0% {
+			bottom: -608rpx;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+    @keyframes myfirst10 {
+		0% {
+			bottom: 0;
+		}
+
+		100% {
+			bottom: -608rpx;
+		}
+	}
+    @keyframes myfirst11 {
+		0% {
+			bottom: -1036rpx;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+    @keyframes myfirst12 {
+		0% {
+			bottom: 0;
+		}
+
+		100% {
+			bottom: -1036rpx;
+		}
+	}
+.uni-calendar__backtoday{
+    display: none;
+    
+}
+
+.uni-calendar-item--multiple{
+    background:#DEE9FF !important;
+    color: #357DF5 !important;
+}
+
+.uni-calendar-item--checked{
+    background-color: #DEE9FF !important;
+    color: #357DF5 !important;
+}
+.uni-calendar-item--after-checked .uni-calendar-item__weeks-box-item,
+.uni-calendar-item--before-checked .uni-calendar-item__weeks-box-item{
+    background: #357DF5 !important;
+    .uni-calendar-item--checked{
+        background-color: #357DF5 !important;
+    }
+    text{
+        background-color: #357DF5 !important;
+        color: #fff !important;
+    }
+}
+.uni-calendar-item--before-checked,.uni-calendar-item--after-checked{
+    background-color: #357DF5 !important;
+}
+//日历_end
+
+// 横屏日历
+.shade_popup_h{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.4);	
+}
+.h_pop{
+    position: fixed;
+    // top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: tovmin(1125);
+    background: #fff;
+    margin: 0 auto;
+    z-index: 101;
+    border-radius: tovmin(20) tovmin(20) 0 0;
+    .top{
+        justify-content: center;
+        position: relative;
+        background: rgba(53,125,245,0.05);
+        display: flex;
+        padding: 0 tovmin(24);
+        height: tovmin(80);
+        align-items: center;
+        .title{
+            font-size: tovmin(30);
+            color: #666666;
+        }
+        .off_icon{
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 tovmin(24);
+            .img{
+                width: tovmin(40);
+                height: tovmin(40);
+                display: block;
+            }
+        }
+    }
+    .main{
+        display: flex;
+        .main_calendar{
+            width: tovmin(680);
+        }
+        .uni-calendar__header{
+            height: tovmin(80);
+            .uni-calendar__header-btn-box{
+                width: tovmin(80);
+                height: tovmin(80);
+            }
+            .uni-calendar__header-text{
+                font-size: tovmin(28);
+            }
+        }
+        .uni-calendar-item__weeks-box-item{
+            width: tovmin(80);
+            height: tovmin(80);
+            .uni-calendar-item__weeks-box-text{
+                font-size: tovmin(28);
+            }
+            .uni-calendar-item__weeks-lunar-text{
+                font-size: tovmin(24);
+
+            }
+        }
+        .cal_data_h{
+            width: tovmin(445);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .time_txt{
+                margin-top: tovmin(150);
+                .m1{
+                    display: flex;
+                    align-items: center;
+                    font-size: tovmin(28);
+                    color: #666666;
+                    line-height: tovmin(52);
+                }
+            }
+            .time{
+                background: #357DF5;
+                border-radius: tovmin(12);
+                width: tovmin(200);
+                height: tovmin(90);
+                color: #fff;
+                font-size: tovmin(40);
+                line-height: tovmin(90);
+                margin: 0;
+                margin-bottom: tovmin(50);
+            }
+        }
+    }
+}
+
+.popup_content_show20{
+    bottom: 0;
+    animation: myfirst20 0.2s linear;
+}
+.popup_content_no21{
+    bottom: -1036rpx;
+    animation: myfirst21 0.2s linear;
+}
+@keyframes myfirst20 {
+    0% {
+        bottom: -750rpx;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+@keyframes myfirst21 {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -750rpx;
+    }
+}
+
+// 横屏日历_end
+
+
+
+
+.scrollHH{
+    position: absolute;
+    left: tovmin(270);
+    bottom: 0;
+    width: tovmin(468);
+    height: tovmin(20);
+    .scrollHH_long{
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        height: tovmin(16);
+        background: #D5D5D5;
+        border-radius: tovmin(6);
+    }
+}
+.scrollHH2{
+    width: tovmin(468);
+    height: tovmin(20);
+    margin-left: tovmin(272);
+    bottom:0;
+    left:tovmin(272);
+    .scrollHH_long{
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        height: tovmin(16);
+        background: #D5D5D5;
+        border-radius: tovmin(6);
+    }
+}
+.scrollYY{
+    position: absolute;
+    right: 0;
+    top:tovmin(156);
+    bottom: 0;
+    width: tovmin(40);
+    z-index: 10;
+    .scrollYY_long{
+        position:absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: tovmin(16);
+        background: #D5D5D5;
+        border-radius: tovmin(6);
+    }
+}
+.getTop{
+    width: tovmin(65);
+    height: tovmin(65);
+    position: fixed;
+    bottom: tovmin(24);
+    right: tovmin(24);
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0rpx 0rpx tovmin(9) 0rpx rgba(213, 213, 213, 0.4);
+    .img{
+        width: tovmin(65);
+        height: tovmin(65);
+        display: block;
+    }
+}
+.getTop_hover{
+    opacity: 0.8;
+}
+</style>

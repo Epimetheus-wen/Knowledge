@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "易通产品知识库-搜索",
+  "usingComponents": {
+    "nav-tab": "/components/navTab",
+    "headertop": "/components/headertop",
+    "loading-list": "/components/loadingList"
+  }
+}

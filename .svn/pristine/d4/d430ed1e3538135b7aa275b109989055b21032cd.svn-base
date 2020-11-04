@@ -1,0 +1,229 @@
+{
+    "pages": [{
+            "path": "pages/index/index",
+            "style": {
+                "navigationBarTitleText": "易通商务助手",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/preview/previewWeb",
+            "style": {
+                "navigationBarTitleText": "预览问题",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/preview/preview",
+            "style": {
+                "navigationBarTitleText": "预览文档",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/user/user",
+            "style": {
+                "navigationBarTitleText": "个人中心",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/user/collectList",
+            "style": {
+                "navigationBarTitleText": "收藏",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/classify/classify",
+            "style": {
+                "navigationBarTitleText": "分类检索",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/classify/classifyList",
+            "style": {
+                "navigationBarTitleText": "分类检索-结果",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/search/search",
+            "style": {
+                "navigationBarTitleText": "易通产品知识库-搜索",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/search/searchResult",
+            "style": {
+                "navigationBarTitleText": "易通产品知识库-搜索",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/search/searchList",
+            "style": {
+                "navigationBarTitleText": "易通产品知识库-搜索",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/login/password/password",
+            "style": {
+                "navigationBarTitleText": "易通商务助手",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/login/cloud/cloud",
+            "style": {
+                "navigationBarTitleText": "易通商务助手",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/login/forgetPassword/forgetPassword",
+            "style": {
+                "navigationBarTitleText": "易通商务助手-修改密码",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/login/newPassword/newPassword",
+            "style": {
+                "navigationBarTitleText": "易通商务助手-修改密码",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/outside/outside",
+            "style": {
+                "navigationBarTitleText": "东信在线",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            "path": "pages/outside/share",
+            "style": {
+                "navigationBarTitleText": "东信在线",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        }
+
+    ],
+    "subPackages": [{
+        "root": "pagesA",
+        "pages": [{
+                "path": "operationalAnalysis/operationalAnalysis",
+                "style": {
+                    "navigationBarTitleText": "经营分析",
+                    "app-plus": {
+                        "titleNView": false
+                    }
+                }
+            },
+            {
+                "path": "dataModule/dataModule",
+                "style": {
+                    "navigationBarTitleText": "数据监控",
+                    "app-plus": {
+                        "titleNView": false
+                    }
+                }
+            },
+            {
+                "path": "details/details",
+                "style": {
+                    "navigationBarTitleText": "商务详情",
+                    "app-plus": {
+                        "titleNView": false
+                    }
+                }
+            },
+            {
+                "path": "oaPanel/oaPanel",
+                "style": {
+                    "navigationBarTitleText": "经分面板",
+                    "app-plus": {
+                        "titleNView": false
+                    },
+                    "pageOrientation": "auto"
+
+                }
+            },
+            {
+                "path": "preList/preList",
+                "style": {
+                    "navigationBarTitleText": "商务排名",
+                    "app-plus": {
+                        "titleNView": false
+                    }
+                }
+            }
+        ]
+    }],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "易通信体验中心",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "backgroundColor": "#FFFFFF",
+        "navigationStyle": "custom"
+    },
+    "tabBar": {
+        "color": "#ffffff",
+        "selectedColor": "#ffffff",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [{
+            "pagePath": "pages/index/index",
+
+            "text": "首页"
+        }, {
+            "pagePath": "pages/classify/classify",
+
+            "text": "分类检索"
+        }, {
+            "pagePath": "pages/user/user",
+
+            "text": "个人中心"
+        }, {
+            "pagePath": "pages/search/search",
+
+            "text": "搜索"
+        }]
+    }
+}

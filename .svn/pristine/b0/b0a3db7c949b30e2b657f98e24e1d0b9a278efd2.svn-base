@@ -1,0 +1,164 @@
+<template>
+  <view class="header_top">
+    <view class="status_bar" :style="'height: calc('+((staHeight*2)+80)+'rpx);'">
+      <view class="top_view" :style="'height:'+staHeight+'px;'"></view>
+      <view class="top titles">
+        <uni-icons v-if="back" @tap="getBack" type="arrowleft" class="arrowleft"></uni-icons>
+        <view v-if="back" class="arrowleft_ba" @tap="getBack"></view>
+        <view class="titleText">{{titleTop}}</view>
+      </view>
+    </view>
+    <view class="geduan" :style="'height: calc('+((staHeight*2)+80)+'rpx);'"></view>
+  </view>
+</template>
+
+<script>
+import uniIcons from "@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue";
+export default {
+  props: ["titleTop"],
+  data() {
+    return {
+      staHeight: "",
+      back: false,
+      noBack:false
+    };
+  },
+  components: {
+    uniIcons
+  },
+  created() {
+    let routes = getCurrentPages();
+    let curRoute = routes[routes.length - 1].route;
+    console.log(curRoute);
+    let that=this
+    this.noBack=false
+    if (curRoute == "pages/search/searchResult") {
+      this.back = true;
+    }
+    if (curRoute == "pages/search/searchList") {
+      this.back = true;
+    }
+    if (curRoute == "pages/classify/classifyList") {
+      this.back = true;
+    }
+    if (curRoute == "pages/user/collectList") {
+      this.back = true;
+    }
+    if (curRoute == "pages/preview/previewWeb") {
+      this.back = true;
+    }
+    if (curRoute == "pages/preview/preview") {
+        this.back = true;
+        wx.getStorage({
+            key: "loginType",
+            success(res) {
+                that.loginType=true
+                console.log(res.data)
+                if(res.data==1007){
+                    that.noBack=true
+                }else{
+                    that.noBack=false
+                }
+            },
+        })
+    }
+    if (curRoute == "pagesA/dataModule/dataModule") {
+      this.back = true;
+      that.noBack=true
+    }
+    if (curRoute == "pagesA/operationalAnalysis/operationalAnalysis") {
+      this.back = true;
+      that.noBack=true
+    }
+    if (curRoute == "pagesA/details/details") {
+      this.back = true;
+    }
+    if (curRoute == "pagesA/oaPanel/oaPanel") {
+      this.back = true;
+    }
+    if (curRoute == "pagesA/preList/preList") {
+      this.back = true;
+    }
+    console.log("状态栏高度");
+    wx.getSystemInfo({
+      success: e => {
+        console.log("状态栏高度", e.statusBarHeight);
+        that.staHeight = e.statusBarHeight;
+      }
+    });
+  },
+  methods: {
+    getBack() {
+        console.log("this.noBack",this.noBack)
+        if(this.noBack){
+
+            uni.switchTab({
+                url: '/pages/index/index'
+            });
+        }else{
+            uni.navigateBack({
+                delta: 1
+            });
+        }
+      
+    }
+  }
+};
+</script>
+
+
+<style lang="scss">
+.header_top {
+  letter-spacing: 1rpx;
+  .status_bar {
+    height: calc(var(--status-bar-height) + 80rpx);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+  }
+
+  .top_view {
+    height: var(--status-bar-height);
+    width: 100%;
+    color: #000000;
+  }
+
+  .geduan {
+    height: calc(var(--status-bar-height) + 80rpx);
+  }
+
+  .titles {
+    height: 80rpx;
+    padding-left: 30rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .arrowleft {
+      font-size: 22rpx;
+      color: #000000;
+      margin-right: 3rpx;
+      margin-left: -10rpx;
+      .uni-icons {
+        font-size: 38rpx !important;
+        color: #000000 !important;
+      }
+    }
+    .arrowleft_ba{
+        position:absolute;
+        left: 0;
+        width: 60rpx;
+        height: 80rpx;
+    }
+    .titleText {
+      height: 80rpx;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      font-size: 32rpx;
+      font-weight: 500;
+    }
+  }
+}
+</style>

@@ -1,0 +1,147 @@
+import md5 from 'js-md5';
+//ID:15220501265 PW:123456
+// var reUrl = "https://test.callas2.caih.com/adminDoc" //测试
+// var reUrl = "http://10.8.51.67:9001/adminDoc"
+// var reUrl = "http://10.17.49.65:9779/adminDoc" //测试
+// var reUrl = "http://10.8.51.61:9111" //测试
+var reUrl = "https://api.caih.com/adminDoc" //生产
+
+export function fetch(url, data) {
+    return new Promise((resolve, reject) => {
+        let time1 = Math.round(new Date().getTime() / 1000).toString();
+        let uuid = ""
+        wx.getSystemInfo({
+            success: function(res) {
+                console.log("设备", res)
+                uuid = res.model + res.system + res.version
+            }
+        })
+        console.log(uuid)
+        wx.request({
+            url: reUrl + url,
+            data: data,
+            header: {
+                "content-type": "application/x-www-form-urlencoded",
+                "sign": md5("DONGXINYITONG-ONLINE!" + time1),
+                "signtime": time1,
+                "uuid": md5(uuid)
+            },
+            method: "POST",
+            success(response) {
+                resolve(response.data);
+            },
+            fail(err) {
+                reject(err);
+            }
+        })
+    })
+}
+
+export function post(url, data) {
+    return new Promise((resolve, reject) => {
+        let time1 = Math.round(new Date().getTime() / 1000).toString();
+        let uuid = ""
+        wx.getSystemInfo({
+            success: function(res) {
+                console.log("设备", res)
+                uuid = res.model + res.system + res.version
+            }
+        })
+        console.log(uuid)
+        wx.getStorage({
+            key: "token",
+            success(res) {
+                console.log(res.data);
+                wx.request({
+                    url: reUrl + url,
+                    data: data,
+                    header: {
+                        "content-type": "application/x-www-form-urlencoded",
+                        "sign": md5("DONGXINYITONG-ONLINE!" + time1),
+                        "signtime": time1,
+                        'Authorization': res.data,
+                        "uuid": md5(uuid)
+                    },
+                    method: "POST",
+                    success(response) {
+                        resolve(response.data);
+                        if (response.data.code == 99999) {
+                            uni.showToast({
+                                title: response.data.msg,
+                                icon: 'none',
+                                duration: 6000
+                            });
+                            wx.redirectTo({
+                                url: "/pages/login/password/password"
+                            });
+                        }
+                    },
+                    fail(err) {
+                        reject(err);
+                    }
+                })
+            },
+            fail(res) {
+                console.log("no");
+                wx.redirectTo({
+                    url: "/pages/login/password/password"
+                });
+                console.log("no");
+            }
+        });
+
+    })
+}
+
+
+export function file(url, data) {
+    return new Promise((resolve, reject) => {
+        let time1 = Math.round(new Date().getTime() / 1000).toString();
+        let uuid = ""
+        wx.getSystemInfo({
+            success: function(res) {
+                console.log("设备", res)
+                uuid = res.model + res.system + res.version
+            }
+        })
+        console.log(uuid)
+        console.log(data)
+        wx.getStorage({
+            key: "token",
+            success(res) {
+                console.log(res.data);
+                uni.uploadFile({
+                    url: reUrl + url, //仅为示例，非真实的接口地址
+                    filePath: data.img,
+                    header: {
+                        "content-type": "application/x-www-form-urlencoded",
+                        "sign": md5("DONGXINYITONG-ONLINE!" + time1),
+                        "signtime": time1,
+                        'Authorization': res.data,
+                        "uuid": md5(uuid)
+                    },
+                    name: 'img',
+                    formData: data,
+                    success: (uploadFileRes) => {
+                        resolve(uploadFileRes.data)
+                        console.log(uploadFileRes)
+                    },
+                    fail(err) {
+                        reject(err);
+                    },
+                    complete(res) {
+                        console.log(res)
+                    }
+                });
+            },
+            fail(res) {
+                console.log("no");
+                wx.redirectTo({
+                    url: "/pages/login/password/password"
+                });
+                console.log("no");
+            }
+        });
+
+    })
+}

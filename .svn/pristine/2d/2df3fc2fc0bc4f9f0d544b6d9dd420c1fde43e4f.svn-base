@@ -1,0 +1,1638 @@
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pagesA/dataModule/dataModule"],{
+
+/***/ 291:
+/*!*****************************************************************!*\
+  !*** ./src/main.js?{"page":"pagesA%2FdataModule%2FdataModule"} ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {
+
+__webpack_require__(/*! uni-pages */ 4);
+
+__webpack_require__(/*! @dcloudio/uni-stat */ 5);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+
+var _dataModule = _interopRequireDefault(__webpack_require__(/*! ./pagesA/dataModule/dataModule.vue */ 292));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+createPage(_dataModule.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 292:
+/*!**********************************************!*\
+  !*** ./src/pagesA/dataModule/dataModule.vue ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataModule.vue?vue&type=template&id=99d4c814& */ 293);
+/* harmony import */ var _dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataModule.vue?vue&type=script&lang=js& */ 295);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dataModule.vue?vue&type=style&index=0&lang=scss& */ 297);
+/* harmony import */ var _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
+
+var renderjs
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null,
+  false,
+  _dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "src/pagesA/dataModule/dataModule.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 293:
+/*!*****************************************************************************!*\
+  !*** ./src/pagesA/dataModule/dataModule.vue?vue&type=template&id=99d4c814& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-0!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./dataModule.vue?vue&type=template&id=99d4c814& */ 294);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_0_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_template_id_99d4c814___WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+
+/***/ 294:
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/pagesA/dataModule/dataModule.vue?vue&type=template&id=99d4c814& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components = {
+  "uni-calendar": function() {
+    return Promise.all(/*! import() | components/uni-calendar/uni-calendar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-calendar/uni-calendar")]).then(__webpack_require__.bind(null, /*! @/components/uni-calendar/uni-calendar.vue */ 401))
+  }
+}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ 295:
+/*!***********************************************************************!*\
+  !*** ./src/pagesA/dataModule/dataModule.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./dataModule.vue?vue&type=script&lang=js& */ 296);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 296:
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/pagesA/dataModule/dataModule.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _moment = _interopRequireDefault(__webpack_require__(/*! moment */ 26));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var NavTab = function NavTab() {
+  __webpack_require__.e(/*! require.ensure | components/navTab */ "components/navTab").then((function () {
+    return resolve(__webpack_require__(/*! ../../components/navTab.vue */ 330));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var uniEcCanvas = function uniEcCanvas() {
+  Promise.all(/*! require.ensure | pagesA/components/uni-ec-canvas/uni-ec-canvas */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/components/uni-ec-canvas/uni-ec-canvas")]).then((function () {
+    return resolve(__webpack_require__(/*! ../components/uni-ec-canvas/uni-ec-canvas */ 392));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var Headertop = function Headertop() {
+  __webpack_require__.e(/*! require.ensure | components/headertop */ "components/headertop").then((function () {
+    return resolve(__webpack_require__(/*! ../../components/headertop.vue */ 337));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var uniCalendar = function uniCalendar() {
+  Promise.all(/*! require.ensure | components/uni-calendar/uni-calendar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-calendar/uni-calendar")]).then((function () {
+    return resolve(__webpack_require__(/*! @/components/uni-calendar/uni-calendar.vue */ 401));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var _default = {
+  data: function data() {
+    return {
+      titleTop: "数据概览",
+      staHeight: "",
+      dataType: 1,
+      rpx: 1,
+      searchValue: "",
+      customerName: {
+        shade: false,
+        dom: false,
+        value: "全部客户",
+        n: "全部客户",
+        old: "全部客户",
+        list: [{
+          CUST_NAME: "全部客户",
+          ID: "全部客户"
+        }]
+      },
+      customerList: [],
+      appKey: {
+        shade: false,
+        dom: false,
+        value: "全部AppKey",
+        n: "全部AppKey",
+        old: "全部AppKey",
+        list: [{
+          APP_KEY: "全部AppKey"
+        }]
+      },
+      appKeyList: [],
+      customDate: {
+        shade: false,
+        dom: false,
+        startDate: "2010-01-01",
+        endDate: "",
+        data: {
+          start: "----年--月--日 ---",
+          end: "----年--月--日 ---"
+        },
+        dateObj: {
+          start: "",
+          end: ""
+        },
+        dufData: "",
+        value: {
+          start: "",
+          end: ""
+        }
+      },
+      uptime: '',
+      businessData: {
+        "total_num": "号码总数",
+        //号码总数
+        "number_rate": "号码利用率",
+        //号码利用率
+        "bind_num": '绑定数',
+        //绑定数
+        "average_bind": '平均绑定数',
+        //平均绑定数
+        "bill_num": '话单量',
+        //话单量
+        "bill_rate": "平均话单量",
+        //平均话单量
+        "minute_num": "通话分钟数",
+        //通话分钟数
+        "average_minute_num": "平均通话分钟数" //平均通话分钟数
+
+      },
+      costData: {
+        "yesterday_amount": "昨日消费",
+        //昨日消费
+        "month_amount": "月消费",
+        //月消费
+        "arrearage": "带结清",
+        //带结清
+        "balance": "余额" //余额
+
+      },
+      ec4: {
+        option: {
+          color: ["#5AD8A6", "#FF6E5F", "#476FD4", "#6698FF", "#FFD351", "#59937C", "#FF9302", "#7775ED", "#BDC3C7"],
+          legend: {
+            icon: "circle",
+            itemHeight: 12,
+            itemWidth: 12,
+            selectedMode: false,
+            bottom: 10,
+            itemGap: 40,
+            left: 60,
+            right: 60,
+            data: ["通话费", "码号费", "短信费", "其他费用"]
+          },
+          tooltip: {
+            trigger: "item",
+            formatter: "{b}：{c0}\r\n占比：{d}%",
+            backgroundColor: "rgba(255,255,255,1)",
+            extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+            axisPointer: {
+              //去掉移动的指示线
+              type: 'line',
+              lineStyle: {
+                color: "#E0E0E0"
+              }
+            },
+            borderRadius: 4,
+            textStyle: {
+              color: "#333333",
+              fontSize: 18
+            }
+          },
+          textStyle: {
+            fontSize: 18,
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            color: "#666666"
+          },
+          series: [// {
+          // 	name: '访问来源',
+          // 	type: 'pie',
+          // 	selectedMode: 'single',
+          //     radius: [0, '30%'],
+          //     center:["50%","40%"],
+          // 	label: {
+          //         position: 'inner',
+          //         fontSize: 18
+          //     },
+          //     itemStyle: {
+          //         borderWidth: 2, //设置border的宽度有多大
+          //         borderColor: '#fff',
+          //     },
+          //     hoverAnimation: false,
+          //     selectedOffset:5,
+          // 	labelLine: {
+          // 		show: false
+          // 	},
+          // 	data: [{
+          // 			value: 679,
+          // 			name: '短信费',
+          // 			selected: true
+          // 		},
+          // 		{
+          // 			value: 535,
+          // 			name: '码号费'
+          // 		},
+          // 		{
+          // 			value: 1548,
+          // 			name: '通话费'
+          // 		}
+          // 	]
+          // },
+          {
+            name: '访问来源',
+            type: 'pie',
+            // radius: ['40%', '58%'],
+            radius: [0, '58%'],
+            center: ["50%", "40%"],
+            selectedOffset: 5,
+            selectedMode: 'single',
+            labelLine: {
+              show: true,
+              normal: {
+                length: 20,
+                length2: 50,
+                lineStyle: {
+                  color: '#979797'
+                }
+              }
+            },
+            itemStyle: {
+              borderWidth: 2,
+              //设置border的宽度有多大
+              borderColor: '#fff'
+            },
+            label: {
+              // formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+              formatter: '\n\n\n{b|{b}：}\n{c|{c}}',
+              padding: [30, -70],
+              position: 'outer',
+              alignTo: 'labelLine',
+              rich: {
+                a: {
+                  color: '#999',
+                  lineHeight: 22,
+                  align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                  borderColor: '#aaa',
+                  width: '100%',
+                  borderWidth: 0.5,
+                  height: 0
+                },
+                b: {
+                  fontSize: 18,
+                  lineHeight: 25,
+                  align: "center",
+                  color: "#999999",
+                  width: 70
+                },
+                c: {
+                  fontSize: 18,
+                  lineHeight: 25,
+                  color: "#333333",
+                  align: "center",
+                  width: 70 // verticalAlign:""
+
+                },
+                per: {
+                  color: '#eee',
+                  backgroundColor: '#334455',
+                  padding: [2, 4],
+                  borderRadius: 2
+                }
+              }
+            },
+            data: [{
+              value: 0,
+              name: '通话费'
+            }, {
+              value: 0,
+              name: '码号费'
+            }, {
+              value: 0,
+              name: '短信费'
+            }, {
+              value: 0,
+              name: '其他费用'
+            }]
+          }]
+        }
+      },
+      costRateGraphList: {
+        call_money: "",
+        number_fee: "",
+        other_money: "",
+        sms_money: ""
+      },
+      costRateGraphRate: {
+        call_rate: "%",
+        number_rate: "%",
+        other_rate: "%",
+        sms_rate: "%"
+      },
+      ec3: {
+        option: {
+          color: ["#357DF5"],
+          title: {
+            text: ""
+          },
+          tooltip: {
+            trigger: "axis",
+            formatter: "{b}\r\n消费额：{c0}",
+            backgroundColor: "rgba(255,255,255,1)",
+            extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+            axisPointer: {
+              //去掉移动的指示线
+              type: 'line',
+              lineStyle: {
+                color: "#E0E0E0"
+              }
+            },
+            borderRadius: 4,
+            textStyle: {
+              color: "#333333",
+              fontSize: 18
+            }
+          },
+          grid: {
+            top: '15%',
+            left: '3.2%',
+            right: '3.2%',
+            bottom: '10%',
+            containLabel: true
+          },
+          xAxis: {
+            type: "category",
+            boundaryGap: true,
+            data: ["2-12", "2-14", "2-16", "2-18", "2-20", "2-22", "2-24"],
+            axisTick: {
+              // x轴刻度线
+              show: true,
+              alignWithLabel: true
+            },
+            axisLabel: {
+              color: "#999999",
+              fontSize: 18
+            },
+            axisLine: {
+              lineStyle: {
+                color: ['#C2C2C2']
+              }
+            }
+          },
+          yAxis: {
+            type: "value",
+            axisLine: {
+              // y轴
+              show: false
+            },
+            axisTick: {
+              // y轴刻度线
+              show: false
+            },
+            splitLine: {
+              // 网格线
+              show: true,
+              lineStyle: {
+                // 使用深浅的间隔色
+                color: ['#ECECEC']
+              }
+            },
+            axisLabel: {
+              color: "#999999",
+              fontSize: 18
+            }
+          },
+          series: [{
+            name: "浏览量",
+            type: "line",
+            // smooth: true,
+            symbol: null,
+            // 拐点图形类型
+            symbolSize: 5,
+            hoverAnimation: false,
+            itemStyle: {
+              normal: {
+                color: '#357DF5',
+                //拐点颜色
+                borderColor: '#fff',
+                //拐点边框颜色
+                borderWidth: 1 //拐点边框大小
+
+              },
+              emphasis: {
+                color: '#357DF5',
+                //hover拐点颜色定义
+                borderColor: '#333'
+              }
+            },
+            areaStyle: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0,
+                  color: "#E1EBFF" // 0% 处的颜色
+
+                }, {
+                  offset: 1,
+                  color: "#fff" // 100% 处的颜色
+
+                }] // global: false // 缺省为 false
+
+              }
+            },
+            lineStyle: {
+              color: "#357DF5"
+            },
+            data: [120, 132, 101, 134, 90, 230, 210]
+          }]
+        }
+      },
+      ec2: {
+        option: {
+          textStyle: {
+            fontSize: 20,
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            color: "#333333"
+          },
+          series: [{
+            name: "访问来源",
+            type: "pie",
+            radius: ["40%", "70%"],
+            center: ["25%", "50%"],
+            label: {
+              position: "outside",
+              color: "#19193E",
+              normal: {
+                show: false
+              },
+              emphasis: {
+                show: false
+              },
+              fontSize: 10
+            },
+            labelLine: {
+              normal: {
+                show: false
+              },
+              emphasis: {
+                show: false
+              }
+            },
+            itemStyle: {
+              borderWidth: 5,
+              //设置border的宽度有多大
+              borderColor: '#fff'
+            },
+            data: [{
+              value: 3321,
+              name: "接听成功",
+              itemStyle: {
+                normal: {
+                  color: "#6395FA"
+                },
+                emphasis: {
+                  color: "#6395FA"
+                }
+              }
+            }, {
+              value: 3048,
+              name: "接听异常",
+              itemStyle: {
+                normal: {
+                  color: "#FF9500"
+                },
+                emphasis: {
+                  color: "#FF9500"
+                }
+              }
+            }]
+          }]
+        }
+      },
+      billAnalyzeGraph: {
+        "bill_num": "0",
+        //总量
+        "success_num": "0",
+        //成功数
+        "fail_num": 0,
+        //异常数
+        "success_rate": "0%",
+        //成功率
+        "fail_rate": "0%" //异常率
+
+      },
+      ec: {
+        option: {
+          color: ["#5B8FF9", "#FF9500"],
+          tooltip: {
+            trigger: 'axis',
+            formatter: "{b}\r\n  接听率：{c1}%\r\n  话单量：{c0}",
+            backgroundColor: "rgba(255,255,255,1)",
+            extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+            axisPointer: {
+              //去掉移动的指示线
+              type: 'none'
+            },
+            borderRadius: 4,
+            textStyle: {
+              color: "#333333",
+              fontSize: 18
+            }
+          },
+          // legend: {
+          // 	selectedMode: false,
+          // 	data: [{
+          // 		name: "接听率",
+          // 		icon: 'rect',
+          //     },
+          //     {
+          // 		name: "话单量",
+          // 		icon: "rect"
+          // 	}],
+          // 	itemHeight: 12,
+          // 	itemWidth: 12,
+          // 	top: '5%',
+          // 	left: "3.2%",
+          // },
+          dataZoom: [{
+            type: 'inside',
+            xAxisIndex: "0",
+            startValue: 0,
+            endValue: 6
+          }],
+          xAxis: [{
+            type: "category",
+            data: ["06.07", "06.08", "06.09", "06.10", "06.11", "06.12", "06.13"],
+            axisTick: {
+              // x轴刻度线
+              show: false
+            },
+            axisLabel: {
+              color: "#999999",
+              fontSize: 18
+            },
+            axisLine: {
+              lineStyle: {
+                color: ['#C2C2C2']
+              }
+            }
+          }],
+          yAxis: [{
+            type: "value",
+            min: 0,
+            max: 100,
+            interval: 20,
+            axisLine: {
+              // y轴
+              show: false
+            },
+            axisTick: {
+              // y轴刻度线
+              show: false
+            },
+            splitLine: {
+              // 网格线
+              show: true,
+              lineStyle: {
+                // 使用深浅的间隔色
+                color: ['#ECECEC']
+              }
+            },
+            axisLabel: {
+              formatter: "{value} %",
+              color: "#999999",
+              fontSize: 18
+            }
+          }, {
+            type: "value",
+            max: 5,
+            axisLine: {
+              // y轴
+              show: false
+            },
+            axisTick: {
+              // y轴刻度线
+              show: false
+            },
+            splitLine: {
+              // 网格线
+              show: false
+            },
+            axisLabel: {
+              formatter: "{value}",
+              color: "#999999",
+              fontSize: 18
+            }
+          }],
+          textStyle: {
+            fontSize: 18,
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            color: "#474747"
+          },
+          grid: {
+            top: '20%',
+            left: '3.2%',
+            right: '3.2%',
+            bottom: '10%',
+            containLabel: true
+          },
+          series: [{
+            name: "话单量",
+            type: "bar",
+            yAxisIndex: 1,
+            barWidth: 40,
+            data: [0, 0, 0, 0, 0, 0, 0]
+          }, {
+            name: "接听率",
+            type: "line",
+            symbol: null,
+            // 拐点图形类型
+            symbolSize: 0,
+            data: [0, 0, 0, 0, 0, 0, 0]
+          }]
+        }
+      },
+      BusinessDataType: true,
+      ec5: {
+        option: {
+          // tooltip: {
+          //     trigger: 'axis',
+          //     formatter: "{b}\r\n话单量：{c}",
+          // 	backgroundColor: "rgba(255,255,255,1)",
+          // 	extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+          // 	axisPointer: { //去掉移动的指示线
+          // 		type: 'none'
+          // 	},
+          // 	borderRadius: 4,
+          // 	textStyle: {
+          // 		color: "#333333",
+          //         fontSize: 18
+          //     },
+          // },
+          grid: {
+            top: "8%",
+            left: '3.2%',
+            right: '7.2%',
+            bottom: '6.2%',
+            width: "auto",
+            containLabel: true
+          },
+          xAxis: {
+            type: 'value',
+            max: 16,
+            interval: 4,
+            axisLine: {
+              // X轴
+              show: true,
+              symbol: ['none', 'round'],
+              symbolSize: [1, 8],
+              symbolOffset: [0, 4],
+              lineStyle: {
+                color: ['#D9D9D9']
+              }
+            },
+            axisTick: {
+              // X轴刻度线
+              show: true,
+              lineStyle: {
+                color: ['#D9D9D9']
+              }
+            },
+            axisLabel: {
+              formatter: "{value}",
+              color: "#999999",
+              fontSize: 18
+            }
+          },
+          yAxis: [{
+            type: 'category',
+            axisLine: {
+              // y轴
+              show: false,
+              lineStyle: {
+                color: ['#D9D9D9']
+              }
+            },
+            axisTick: {
+              // y轴刻度线
+              show: false
+            },
+            axisLabel: {
+              formatter: "{value}",
+              color: "#999999",
+              fontSize: 18
+            },
+            data: ['无绑定关系', '被叫关机', '被叫停机', '被叫空号', '被叫拒接', '被叫忙', '被叫无应答', "被叫无法接通", "运营商故障", "主叫提前挂机"]
+          }, {
+            type: 'category',
+            position: "left",
+            z: 10,
+            axisLine: {
+              // y轴
+              show: false,
+              lineStyle: {
+                color: ['#D9D9D9']
+              }
+            },
+            axisTick: {
+              // y轴刻度线
+              show: false
+            },
+            axisLabel: {
+              inside: true,
+              margin: 12,
+              formatter: "{value}",
+              color: "#fff",
+              fontSize: 18
+            },
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          }],
+          color: ["#5B8FF9"],
+          series: [{
+            name: '直接访问',
+            type: 'bar',
+            barWidth: 25,
+            label: {
+              show: true,
+              distance: -30,
+              align: "left",
+              color: "#333",
+              position: 'insideRight',
+              fontSize: 18,
+              lineHeight: 25
+            },
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          }]
+        }
+      },
+      ec6: {
+        option: {
+          color: ["#73A0FA", "#5AD8A6", "#F7C739", "#FF99C3", "#945FB9"],
+          legend: {
+            icon: "circle",
+            itemHeight: 12,
+            itemWidth: 12,
+            selectedMode: false,
+            top: "center",
+            itemGap: 30,
+            right: 99,
+            orient: "vertical",
+            data: ["3分钟以上", "3分钟以内", "2分钟以内", "1分钟以内", "0通话"]
+          },
+          tooltip: {
+            trigger: "item",
+            z: 50,
+            formatter: "{b}：{c}",
+            backgroundColor: "rgba(255,255,255,1)",
+            extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+            axisPointer: {
+              //去掉移动的指示线
+              type: 'line',
+              lineStyle: {
+                color: "#E0E0E0"
+              }
+            },
+            borderRadius: 4,
+            textStyle: {
+              color: "#333333",
+              fontSize: 18
+            }
+          },
+          textStyle: {
+            fontSize: 18,
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            color: "#666666"
+          },
+          series: [{
+            name: '访问来源',
+            type: 'pie',
+            radius: ['30%', '68%'],
+            center: ["33%", "50%"],
+            selectedOffset: 5,
+            selectedMode: 'single',
+            hoverAnimation: false,
+            labelLine: {
+              show: true,
+              normal: {
+                length: 20,
+                length2: 50,
+                lineStyle: {
+                  color: '#333'
+                }
+              }
+            },
+            itemStyle: {
+              borderWidth: 2,
+              //设置border的宽度有多大
+              borderColor: '#fff'
+            },
+            label: {
+              show: false
+            },
+            data: [{
+              value: 0,
+              name: '3分钟以上'
+            }, {
+              value: 0,
+              name: '3分钟以内'
+            }, {
+              value: 0,
+              name: '2分钟以内'
+            }, {
+              value: 0,
+              name: '1分钟以内'
+            }, {
+              value: 0,
+              name: '0通话'
+            }]
+          }, {
+            name: '访问来源',
+            type: 'pie',
+            radius: ['60%', '60%'],
+            center: ["33%", "50%"],
+            selectedOffset: 5,
+            selectedMode: 'single',
+            hoverAnimation: false,
+            z: 48,
+            labelLine: {
+              show: true,
+              normal: {
+                length: 40,
+                length2: 0,
+                lineStyle: {
+                  color: '#333'
+                }
+              }
+            },
+            itemStyle: {
+              opacity: 0 // borderWidth: 2, //设置border的宽度有多大
+              // borderColor: '#fff',
+
+            },
+            label: {
+              formatter: "{d}%",
+              color: '#333'
+            },
+            data: [{
+              value: 0,
+              name: '3分钟以上'
+            }, {
+              value: 0,
+              name: '3分钟以内'
+            }, {
+              value: 0,
+              name: '2分钟以内'
+            }, {
+              value: 0,
+              name: '1分钟以内'
+            }, {
+              value: 0,
+              name: '0通话'
+            }]
+          }]
+        }
+      }
+    };
+  },
+  onShow: function onShow() {
+    var _this = this;
+
+    console.log("状态栏高度");
+    var that = this;
+    wx.getSystemInfo({
+      success: function success(e) {
+        console.log("设备版本信息", e);
+        console.log("状态栏高度", e.statusBarHeight);
+        that.staHeight = e.statusBarHeight;
+        that.rpx = e.windowWidth / 750;
+      }
+    });
+    this.getCustName().then(function (res) {
+      _this.customerName.list = _this.customerName.list.concat(res);
+    });
+    this.getAppKey().then(function (res) {
+      _this.appKey.list = _this.appKey.list.concat(res);
+    });
+  },
+  onReady: function onReady() {
+    var nowDate = new Date();
+    var endTime = nowDate.getTime() - 24 * 60 * 60 * 1000; // let startTime=nowDate.getTime() -31 * 24 * 60 * 60 * 1000
+
+    this.uptime = (0, _moment.default)(endTime).format('YYYY-MM-DD 00:00');
+    var t2 = nowDate.getTime() - 7 * 24 * 60 * 60 * 1000;
+    this.customDate.dufData = (0, _moment.default)(endTime).format('YYYY-MM-DD');
+    console.log("当前时间", this.customDate.dufData);
+    this.customDate.endDate = this.customDate.dufData; // this.customDate.startDate=moment(startTime).format('YYYY-MM-DD')
+
+    this.customDate.value.start = (0, _moment.default)(t2).format('YYYY-MM-DD');
+    this.customDate.value.end = (0, _moment.default)(endTime).format('YYYY-MM-DD');
+    this.getBusinessData('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getCostData('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getBillGraph('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getBillAnalyzeGraph('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getCostGraph('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getCostRateGraph('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getAnswerAnalyzeGraph('', this.customDate.value.start, this.customDate.value.end, '');
+    this.getCallDurationGraph('', this.customDate.value.start, this.customDate.value.end, '');
+    this.ec.option.yAxis[0].axisLabel.fontSize = 18 * this.rpx;
+    this.ec.option.yAxis[1].axisLabel.fontSize = 18 * this.rpx;
+    this.ec.option.xAxis[0].axisLabel.fontSize = 18 * this.rpx; // this.ec.option.legend.itemHeight = 12 * this.rpx;
+    // this.ec.option.legend.itemWidth = 12 * this.rpx;
+
+    this.ec.option.textStyle.fontSize = 18 * this.rpx;
+    this.ec.option.series[0].barWidth = 40 * this.rpx;
+    this.ec3.option.yAxis.axisLabel.fontSize = 18 * this.rpx;
+    this.ec3.option.xAxis.axisLabel.fontSize = 18 * this.rpx;
+    this.ec4.option.legend.itemHeight = 12 * this.rpx;
+    this.ec4.option.legend.itemWidth = 12 * this.rpx;
+    this.ec4.option.legend.itemGap = 40 * this.rpx;
+    this.ec4.option.legend.left = 40 * this.rpx;
+    this.ec4.option.legend.right = 40 * this.rpx;
+    this.ec4.option.textStyle.fontSize = 18 * this.rpx;
+    this.ec4.option.series[0].label.fontSize = 18 * this.rpx; // this.ec4.option.series[1].label.rich.b.fontSize = 18 * this.rpx;
+    // this.ec4.option.series[1].label.rich.b.lineHeight = 25 * this.rpx;
+    // this.ec4.option.series[1].label.rich.c.fontSize = 18 * this.rpx;
+    // this.ec4.option.series[1].label.rich.c.lineHeight = 25 * this.rpx;
+
+    this.ec4.option.series[0].label.rich.b.fontSize = 18 * this.rpx;
+    this.ec4.option.series[0].label.rich.b.lineHeight = 25 * this.rpx;
+    this.ec4.option.series[0].label.rich.c.fontSize = 18 * this.rpx;
+    this.ec4.option.series[0].label.rich.c.lineHeight = 25 * this.rpx;
+    this.ec5.option.yAxis[0].axisLabel.fontSize = 18 * this.rpx;
+    this.ec5.option.yAxis[1].axisLabel.fontSize = 18 * this.rpx;
+    this.ec5.option.xAxis.axisLabel.fontSize = 18 * this.rpx;
+    this.ec5.option.xAxis.axisLabel.margin = 12 * this.rpx;
+    this.ec5.option.series[0].barWidth = 25 * this.rpx;
+    this.ec5.option.series[0].label.fontSize = 18 * this.rpx;
+    this.ec5.option.series[0].label.lineHeight = 25 * this.rpx;
+    this.ec5.option.series[0].label.distance = -12 * this.rpx;
+    this.ec6.option.legend.itemHeight = 12 * this.rpx;
+    this.ec6.option.legend.itemWidth = 12 * this.rpx;
+    this.ec6.option.legend.itemGap = 30 * this.rpx;
+    this.ec6.option.legend.right = 99 * this.rpx;
+    this.ec6.option.textStyle.fontSize = 18 * this.rpx;
+    this.ec6.option.series[0].label.fontSize = 18 * this.rpx;
+    this.ec6.option.series[1].labelLine.normal.length = 40 * this.rpx;
+  },
+  components: {
+    uniEcCanvas: uniEcCanvas,
+    Headertop: Headertop,
+    NavTab: NavTab,
+    uniCalendar: uniCalendar
+  },
+  methods: {
+    upChart: function upChart(key, start, end, custId) {
+      if (key == "全部AppKey") {
+        key = "";
+      }
+
+      if (custId == "全部客户") {
+        custId = "";
+      }
+
+      var businessData = {
+        "total_num": "号码总数",
+        //号码总数
+        "number_rate": "号码利用率",
+        //号码利用率
+        "bind_num": '绑定数',
+        //绑定数
+        "average_bind": '平均绑定数',
+        //平均绑定数
+        "bill_num": '话单量',
+        //话单量
+        "bill_rate": "平均话单量",
+        //平均话单量
+        "minute_num": "通话分钟数",
+        //通话分钟数
+        "average_minute_num": "平均通话分钟数" //平均通话分钟数
+
+      };
+      var costData = {
+        "yesterday_amount": "昨日消费",
+        //昨日消费
+        "month_amount": "月消费",
+        //月消费
+        "arrearage": "带结清",
+        //带结清
+        "balance": "余额" //余额
+
+      };
+      this.businessData = businessData;
+      this.costData = costData;
+      this.getBusinessData(key, start, end, custId);
+      this.getCostData(key, start, end, custId);
+      this.getBillGraph(key, start, end, custId);
+      this.getBillAnalyzeGraph(key, start, end, custId);
+      this.getCostGraph(key, start, end, custId);
+      this.getCostRateGraph(key, start, end, custId);
+      this.getAnswerAnalyzeGraph(key, start, end, custId);
+      this.getCallDurationGraph(key, start, end, custId);
+    },
+    change: function change(e) {
+      console.log(e);
+
+      if (e.range.data.length == 0) {
+        console.log("ssssssss");
+
+        if (e.range.before) {
+          this.customDate.data.start = this.getTimeForm(e.range.before);
+        } else {
+          this.customDate.data.start = "----年--月--日 ---";
+          this.customDate.data.end = "----年--月--日 ---";
+        }
+      } else {
+        this.customDate.dateObj.start = e.range.data[0];
+        this.customDate.dateObj.end = e.range.data[e.range.data.length - 1];
+        this.customDate.data.start = this.getTimeForm(e.range.data[0]);
+        this.customDate.data.end = this.getTimeForm(e.range.data[e.range.data.length - 1]);
+      }
+    },
+    getBusinessData: function getBusinessData(key, start, end, custId) {
+      var _this2 = this;
+
+      this.BusinessDataType = false;
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=businessData", data).then(function (res) {
+        console.log("businessData", res);
+        _this2.businessData = res.data;
+        _this2.BusinessDataType = true;
+      });
+    },
+    getCostData: function getCostData(key, start, end, custId) {
+      var _this3 = this;
+
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=costData", data).then(function (res) {
+        console.log("costData", res);
+        _this3.costData = res.data;
+      });
+    },
+    getCustName: function getCustName() {
+      var _this4 = this;
+
+      return new Promise(function (resolve, reject) {
+        _this4.$post("/apiPrivacy.html?f=getCustName").then(function (res) {
+          console.log("getCustName", res);
+          _this4.customerList = res.data;
+          resolve(res.data);
+        });
+      });
+    },
+    getTimeForm: function getTimeForm(str) {
+      var t1 = new Date(str);
+      console.log("t1", t1);
+      var day = "";
+
+      switch (t1.getDay()) {
+        case 0:
+          day = "星期天";
+          break;
+
+        case 1:
+          day = "星期一";
+          break;
+
+        case 2:
+          day = "星期二";
+          break;
+
+        case 3:
+          day = "星期三";
+          break;
+
+        case 4:
+          day = "星期四";
+          break;
+
+        case 5:
+          day = "星期五";
+          break;
+
+        case 6:
+          day = "星期六";
+      }
+
+      return (0, _moment.default)(t1).format("YYYY") + "年" + (0, _moment.default)(t1).format("MM") + "月" + (0, _moment.default)(t1).format("DD") + "日 " + day;
+    },
+    getAppKey: function getAppKey() {
+      var _this5 = this;
+
+      return new Promise(function (resolve, reject) {
+        var idName = "";
+
+        if (_this5.customerName.n == "全部客户") {
+          idName = '';
+        } else {
+          idName = _this5.customerName.n;
+        }
+
+        var data = {
+          id: idName
+        };
+
+        _this5.$post("/apiPrivacy.html?f=getAppKey", data).then(function (res) {
+          console.log("getAppKey", res);
+          _this5.appKeyList = res.data;
+          resolve(res.data);
+        });
+      });
+    },
+    getBillGraph: function getBillGraph(key, start, end, custId) {
+      var _this6 = this;
+
+      //接听率趋势图
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=billGraph", data).then(function (res) {
+        console.log("billGraph", res);
+        _this6.ec.option.xAxis[0].data = res.data.x;
+        _this6.ec.option.series[0].data = res.data.list[1].data;
+        _this6.ec.option.series[1].data = res.data.list[0].data; // this.ec.option.series[1].data=[50, 0, 0, 0, 0, 0, 0, 0, 60, 40, 0, 0, 0, 0, 2, 0, 0, 10, 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0]
+        // this.ec.option.series[0].data=[5000, 6000, 10000,  12000, 16000, 16000, 0, 0, 6000, 4000, 14000, 0, 200000, 0, 2, 0, 0, 10, 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0]
+
+        _this6.ec.option.yAxis[1].max = res.data.max;
+      });
+    },
+    getBillAnalyzeGraph: function getBillAnalyzeGraph(key, start, end, custId) {
+      var _this7 = this;
+
+      //话单统计分析图
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=billAnalyzeGraph", data).then(function (res) {
+        console.log("billAnalyzeGraph", res);
+        _this7.ec2.option.series[0].data[0].value = res.data.success_num;
+        _this7.ec2.option.series[0].data[1].value = res.data.fail_num;
+
+        if (res.data.success_num > 0 && res.data.fail_num == 0) {
+          _this7.ec2.option.series[0].itemStyle.borderWidth = 0;
+        } else if (res.data.success_num == 0 && res.data.fail_num > 0) {
+          _this7.ec2.option.series[0].itemStyle.borderWidth = 0;
+        } else {
+          _this7.ec2.option.series[0].itemStyle.borderWidth = 5;
+        }
+
+        _this7.billAnalyzeGraph = res.data;
+      });
+    },
+    getCostGraph: function getCostGraph(key, start, end, custId) {
+      var _this8 = this;
+
+      //消费数据-消费趋势图
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=costGraph", data).then(function (res) {
+        console.log("costGraph", res);
+        _this8.ec3.option.xAxis.data = res.data.x;
+        _this8.ec3.option.series[0].data = res.data.list[0].data;
+      });
+    },
+    getCostRateGraph: function getCostRateGraph(key, start, end, custId) {
+      var _this9 = this;
+
+      //消费数据-消费趋势图
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=costRateGraph", data).then(function (res) {
+        console.log("costRateGraph", res);
+        _this9.ec4.option.series[0].data = res.data.list; // this.ec4.option.series[0].data[0].value=res.data.list[0].value
+        // this.ec4.option.series[0].data[1].value=res.data.list[1].value
+        // this.ec4.option.series[0].data[2].value=res.data.list[2].value
+        // this.ec4.option.series[0].data[3].value=res.data.list[3].value
+
+        _this9.costRateGraphList.call_money = res.data.list[0].value;
+        _this9.costRateGraphList.number_fee = res.data.list[1].value;
+        _this9.costRateGraphList.other_money = res.data.list[3].value;
+        _this9.costRateGraphList.sms_money = res.data.list[2].value;
+        _this9.costRateGraphRate = res.data.rate;
+        var num = 0;
+        res.data.list.map(function (item) {
+          if (item.value > 0) {
+            num = num + 1;
+          }
+        });
+
+        if (num == 1) {
+          _this9.ec4.option.series[0].itemStyle.borderWidth = 0;
+        } else {
+          _this9.ec4.option.series[0].itemStyle.borderWidth = 2;
+        }
+      });
+    },
+    getAnswerAnalyzeGraph: function getAnswerAnalyzeGraph(key, start, end, custId) {
+      var _this10 = this;
+
+      //消费数据-接听异常话单分析图
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=answerAnalyzeGraph", data).then(function (res) {
+        console.log("answerAnalyzeGraph", res);
+        _this10.ec5.option.yAxis[0].data = res.data.x;
+        _this10.ec5.option.xAxis.max = res.data.max;
+        _this10.ec5.option.series[0].data = res.data.list;
+        _this10.ec5.option.yAxis[1].data = res.data.ratio;
+        _this10.ec5.option.xAxis.interval = res.data.interval;
+        var maxArr = Math.max.apply(Math, _toConsumableArray(_this10.ec5.option.series[0].data));
+
+        if (maxArr / _this10.ec5.option.xAxis.max > 13 / 16) {
+          console.log("大于");
+          var item = parseInt((_this10.ec5.option.xAxis.max + _this10.ec5.option.xAxis.interval) / 4);
+          _this10.ec5.option.xAxis.interval = item;
+          _this10.ec5.option.xAxis.max = item * 4;
+        }
+
+        _this10.ec5.option.series[0].data.map(function (item, index) {
+          if (item == 0 || item < _this10.ec5.option.xAxis.interval / 2) {
+            console.log(item);
+            _this10.ec5.option.yAxis[1].data[index] = '';
+          } else {
+            _this10.ec5.option.yAxis[1].data[index] = _this10.ec5.option.yAxis[1].data[index] + "%";
+          }
+        });
+
+        console.log(_this10.ec5.option.yAxis[1].data);
+      });
+    },
+    getCallDurationGraph: function getCallDurationGraph(key, start, end, custId) {
+      var _this11 = this;
+
+      //消费数据-通话时长占比
+      var data = {
+        key: key,
+        start: start,
+        end: end,
+        cust_id: custId
+      };
+      this.$post("/apiPrivacy.html?f=callDurationGraph", data).then(function (res) {
+        console.log("callDurationGraph", res);
+        _this11.ec6.option.series[0].data = res.data;
+        _this11.ec6.option.series[1].data = res.data;
+      });
+    },
+    cutTab: function cutTab(id) {
+      this.dataType = id;
+    },
+    goSearch: function goSearch(str) {
+      console.log(str);
+      str = str.replace(/(^\s*)|(\s*$)/g, "");
+      var arrSearch = [];
+
+      if (str != "") {
+        for (var i = 0; i < this.customerList.length; i++) {
+          if (this.customerList[i].CUST_NAME.indexOf(str) >= 0) {
+            arrSearch.push(this.customerList[i]);
+          }
+        }
+      } else {
+        console.log("空");
+        arrSearch = [{
+          CUST_NAME: "全部客户",
+          ID: "全部客户"
+        }];
+        arrSearch = arrSearch.concat(this.customerList);
+      }
+
+      this.customerName.list = arrSearch;
+    },
+    eliminate: function eliminate() {
+      this.searchValue = "";
+      this.customerName.list = [{
+        CUST_NAME: "全部客户",
+        ID: "全部客户"
+      }];
+      this.customerName.list = this.customerName.list.concat(this.customerList);
+    },
+    pitch: function pitch(id) {
+      console.log(id);
+      this.customerName.n = id;
+    },
+    pitch2: function pitch2(id) {
+      console.log(id);
+      this.appKey.n = id;
+    },
+    offPop: function offPop() {
+      var _this12 = this;
+
+      setTimeout(function () {
+        _this12.customerName.shade = false;
+        setTimeout(function () {
+          _this12.customerName.dom = false;
+          _this12.customerName.n = _this12.customerName.old;
+        }, 200);
+      }, 100);
+    },
+    offPop2: function offPop2() {
+      var _this13 = this;
+
+      setTimeout(function () {
+        _this13.appKey.shade = false;
+        setTimeout(function () {
+          _this13.appKey.dom = false;
+          _this13.appKey.n = _this13.appKey.old;
+        }, 200);
+      }, 100);
+    },
+    offPop3: function offPop3() {
+      var _this14 = this;
+
+      setTimeout(function () {
+        _this14.customDate.shade = false;
+        setTimeout(function () {
+          _this14.customDate.dom = false;
+        }, 200);
+      }, 100);
+    },
+    noPop: function noPop() {
+      var _this15 = this;
+
+      setTimeout(function () {
+        _this15.customerName.shade = false;
+        setTimeout(function () {
+          _this15.customerName.dom = false;
+
+          _this15.customerName.list.map(function (item) {
+            if (item.ID == _this15.customerName.n) {
+              _this15.customerName.value = item.CUST_NAME;
+
+              _this15.getAppKey().then(function (res) {
+                _this15.appKey.list = [{
+                  APP_KEY: "全部AppKey"
+                }];
+                _this15.appKey.value = "全部AppKey";
+                _this15.appKey.n = "全部AppKey";
+                _this15.appKey.old = "全部AppKey";
+                _this15.appKey.list = _this15.appKey.list.concat(res);
+
+                _this15.upChart(_this15.appKey.n, _this15.customDate.value.start, _this15.customDate.value.end, _this15.customerName.n);
+              });
+            }
+          });
+        }, 200);
+      }, 100);
+    },
+    noPop2: function noPop2() {
+      var _this16 = this;
+
+      setTimeout(function () {
+        _this16.appKey.shade = false;
+        setTimeout(function () {
+          _this16.appKey.dom = false;
+          _this16.appKey.value = _this16.appKey.n;
+
+          _this16.upChart(_this16.appKey.n, _this16.customDate.value.start, _this16.customDate.value.end, _this16.customerName.n);
+        }, 200);
+      }, 100);
+    },
+    showPop: function showPop(id) {
+      var _this17 = this;
+
+      this.customerName.old = id;
+      setTimeout(function () {
+        _this17.customerName.dom = true;
+        _this17.customerName.shade = true;
+      }, 100);
+    },
+    showPop2: function showPop2(id) {
+      var _this18 = this;
+
+      this.appKey.old = id;
+      setTimeout(function () {
+        _this18.appKey.dom = true;
+        _this18.appKey.shade = true;
+      }, 100);
+    },
+    showPop3: function showPop3(id) {
+      var _this19 = this;
+
+      setTimeout(function () {
+        _this19.customDate.dom = true;
+        _this19.customDate.shade = true;
+      }, 100);
+    },
+    confirmTime: function confirmTime() {
+      console.log("confirmTime");
+      console.log(this.customDate.dateObj.start);
+      console.log(this.customDate.dateObj.end);
+      var t1 = new Date(this.customDate.dateObj.start);
+      var t2 = new Date(this.customDate.dateObj.end);
+      var days = t2.getTime() - t1.getTime();
+      days = Math.floor(days / (24 * 3600 * 1000));
+
+      if (this.customDate.data.start == "----年--月--日 ---") {
+        uni.showToast({
+          title: "请选择开始时间",
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      } else if (this.customDate.data.end == "----年--月--日 ---") {
+        uni.showToast({
+          title: "请选择结束时间",
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      }
+
+      console.log("days", days);
+
+      if (days > 30) {
+        uni.showToast({
+          title: "时间范围不能超出一个月",
+          icon: 'none',
+          duration: 2000
+        });
+      } else {
+        this.customDate.value.start = this.customDate.dateObj.start;
+        this.customDate.value.end = this.customDate.dateObj.end;
+        this.offPop3();
+        this.upChart(this.appKey.n, this.customDate.value.start, this.customDate.value.end, this.customerName.n);
+      }
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 297:
+/*!********************************************************************************!*\
+  !*** ./src/pagesA/dataModule/dataModule.vue?vue&type=style&index=0&lang=scss& ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!../../../node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!../../../node_modules/postcss-loader/src??ref--8-oneOf-1-3!../../../node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!../../../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../../../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./dataModule.vue?vue&type=style&index=0&lang=scss& */ 298);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_dataModule_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 298:
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/pagesA/dataModule/dataModule.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ })
+
+},[[291,"common/runtime","common/vendor"]]]);
+//# sourceMappingURL=../../../.sourcemap/mp-weixin/pagesA/dataModule/dataModule.js.map

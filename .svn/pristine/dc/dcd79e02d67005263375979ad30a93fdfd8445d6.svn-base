@@ -1,0 +1,211 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.searchResult {
+  letter-spacing: 1rpx;
+  min-height: 100vh;
+  background: #EFEFF4;
+}
+.searchResult .searchResult_main .search_top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  height: 92rpx;
+}
+.searchResult .searchResult_main .search_top .search_top_center {
+  margin-left: 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  position: relative;
+  width: 608rpx;
+  height: 60rpx;
+  background: white;
+  box-shadow: 0px 2rpx 10rpx 0px #d5d5d5;
+  border-radius: 6rpx;
+}
+.searchResult .searchResult_main .search_top .search_top_center > .input {
+  width: 100%;
+  height: 100%;
+  padding-left: 66rpx;
+  padding-right: 54rpx;
+  font-size: 26rpx;
+  position: relative;
+  z-index: 1;
+}
+.searchResult .searchResult_main .search_top .search_top_center .input_s {
+  font-size: 26rpx;
+  color: #BBBBBB;
+}
+.searchResult .searchResult_main .search_top .search_top_center .img {
+  width: 30rpx;
+  height: 30rpx;
+  display: block;
+  z-index: 2;
+}
+.searchResult .searchResult_main .search_top .search_top_center > .img1 {
+  position: absolute;
+  left: 24rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+.searchResult .searchResult_main .search_top .search_top_center > .img2 {
+  position: absolute;
+  padding: 0 24rpx;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+.searchResult .searchResult_main .search_top .search_top_right {
+  width: 112rpx;
+  font-size: 28rpx;
+  color: #2F7AF5;
+  text-align: center;
+}
+.searchResult .searchResult_main .search_center {
+  margin-top: 22rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_title {
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.3);
+  line-height: 28rpx;
+  margin-left: 30rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main {
+  margin-top: 15rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main .preview_no .img {
+  width: 210rpx;
+  height: 210rpx;
+  display: block;
+  margin: 226rpx 270rpx 0 270rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main .preview_no .txt {
+  margin-top: 40rpx;
+  margin-bottom: 23rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 51rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main .preview_no .txt1, .searchResult .searchResult_main .search_center .search_center_main .preview_no .txt2 {
+  text-align: center;
+  line-height: 40rpx;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 28rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main .search_center_item .search_f_title {
+  margin: 0 30rpx;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.3);
+  line-height: 51rpx;
+  padding-bottom: 7rpx;
+  border-bottom: 2rpx solid rgba(0, 0, 0, 0.1);
+}
+.searchResult .searchResult_main .search_center .search_center_main .search_center_item .search_f_footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  margin: 4rpx 0 13rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main .search_center_item .search_f_footer .txt {
+  margin-left: 146rpx;
+  color: #2f7af5;
+  line-height: 51rpx;
+  font-size: 24rpx;
+}
+.searchResult .searchResult_main .search_center .search_center_main .search_center_item .search_f_footer .img {
+  width: 14rpx;
+  height: 26rpx;
+  display: block;
+  margin-right: 50rpx;
+}
+.load_icon {
+  position: absolute;
+  left: 0;
+  top: -4rpx;
+  -webkit-animation: myfirst1 1.5s linear infinite;
+          animation: myfirst1 1.5s linear infinite;
+}
+.load_icon .uni-icons {
+  font-size: 38rpx !important;
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+.searchResult1 {
+  background: #fff;
+}
+.searchResult1 .searchResult_main .search_top {
+  background: #EFEFF4;
+}
+@-webkit-keyframes myfirst1 {
+0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+@keyframes myfirst1 {
+0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+

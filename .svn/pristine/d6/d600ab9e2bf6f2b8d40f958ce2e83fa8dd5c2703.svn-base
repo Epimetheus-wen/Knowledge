@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "经营分析",
+  "usingComponents": {
+    "nav-tab": "/components/navTab",
+    "headertop": "/components/headertop",
+    "swiper-dot": "/pagesA/operationalAnalysis/seiperDot",
+    "uni-popup": "/pagesA/components/uni-popup/uni-popup",
+    "uni-ec-canvas": "/pagesA/components/uni-ec-canvas/uni-ec-canvas"
+  }
+}

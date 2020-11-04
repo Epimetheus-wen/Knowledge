@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "数据监控",
+  "usingComponents": {
+    "uni-calendar": "/components/uni-calendar/uni-calendar",
+    "uni-ec-canvas": "/pagesA/components/uni-ec-canvas/uni-ec-canvas",
+    "headertop": "/components/headertop",
+    "nav-tab": "/components/navTab"
+  }
+}

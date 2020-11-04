@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商务排名",
+  "usingComponents": {
+    "uni-calendar": "/components/uni-calendar/uni-calendar",
+    "headertop": "/components/headertop",
+    "header-landscape": "/pagesA/components/headerLandscape",
+    "uni-icons": "/node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons"
+  }
+}
