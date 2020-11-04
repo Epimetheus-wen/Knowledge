@@ -1,6 +1,6 @@
 # experience
 //创建于2020/04/29 wxj
-
+东信——商务助手
 > 一个vue-cli创建的uni-app的微信小程序模板,
 
 1. 添加scss的编译
